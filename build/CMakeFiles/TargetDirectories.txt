@@ -1,0 +1,3 @@
+/home/kristen/chessBot/build/CMakeFiles/chess_bot.dir
+/home/kristen/chessBot/build/CMakeFiles/edit_cache.dir
+/home/kristen/chessBot/build/CMakeFiles/rebuild_cache.dir
