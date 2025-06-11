@@ -10,7 +10,8 @@ class Piece{
             const std::string& displayName,
             char file,
             int rank,
-            int point_val);
+            int point_val,
+            bool hasMoved = false);
         std::string name;
         std::string color;
         std::string displayName;
@@ -18,5 +19,6 @@ class Piece{
         std::tuple<int,int> coord;
         int point_val;
         bool inPlay = true;
-        bool isPromoted = false;
+        bool hasMoved;
+        std::vector<std::pair<int, int>> moveHistory;
 };

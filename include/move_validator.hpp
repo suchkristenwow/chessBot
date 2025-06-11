@@ -13,7 +13,7 @@ namespace MoveValidator{
         static MoveResult error(const std::string& msg){return {false,msg};}
     }
     struct ParsedSAN{
-        char pieceType;
+        char cdType;
         bool isCapture;
         char disambiguationFile;
         char disambiguationRank;

@@ -5,6 +5,7 @@
 #include <iomanip> 
 
 #include "piece.hpp" 
+#include "move_validator.hpp"
 
 class Board{
     public:
