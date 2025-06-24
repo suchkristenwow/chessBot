@@ -7,7 +7,18 @@ Board::Board(){
 }
 
 void Board::simulateMove(int depRow, int depCol, int destRow, int destCol) {
-    grid[destRow][destCol] = grid[depRow][depCol];
+    printBoard();
+    auto piece = grid[depRow][depCol];
+    if (!piece) {
+        std::cerr << "[simulateMove] Error: No piece at source square (" << depRow << ", " << depCol << ")" << std::endl;
+        return;
+    }
+
+    std::cout << "Removing " << piece->color << " " << piece->name
+              << " from row: " << depRow << " col: " << depCol << std::endl;
+    std::cout << "Placing this piece at row: " << destRow << " col: " << destCol << std::endl;
+
+    grid[destRow][destCol] = piece;
     grid[depRow][depCol] = nullptr;
 }
 
@@ -46,7 +57,7 @@ void Board::initialize(){
 
     // Place kings
     grid[0][4] = std::make_shared<Piece>("king", "black", "b_K", 'e', 8, 1000);
-    grid[7][4] = std::make_shared<Piece>("king", "white", "w_Q", 'e', 1, 1000);
+    grid[7][4] = std::make_shared<Piece>("king", "white", "w_K", 'e', 1, 1000);
 }
 
 void Board::movePiece(const std::string& algebraic_move, const std::string &color){

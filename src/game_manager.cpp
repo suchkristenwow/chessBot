@@ -397,8 +397,10 @@ std::vector<std::string> GameManager::getAllKingMoves(int row, int col, const st
             move = "Kx" + std::string(1, destFile) + std::to_string(destRank); 
         } else if (!possiblePiece){
             move = "K" + std::string(1, destFile) + std::to_string(destRank); 
+        } else {
+            continue; 
         }
-        if (MoveValidator::isvalidMove(board, move, color).valid) {
+        if (!move.empty() && MoveValidator::isvalidMove(board, move, color).valid) {
             std::cout << "This move: " << move << "is valid" << std::endl;
             legalMoves.push_back(move);
         }

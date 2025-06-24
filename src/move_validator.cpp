@@ -5,35 +5,37 @@ namespace MoveValidator{
 
     
 bool isCheck(const Board& board, const std::string& color, int depRow, int depCol, int destRow, int destCol) {
-    // std::cout << "Checking if this move would put " << color << " in check ..." << std::endl; 
+    std::cout << "Checking if this move would put " << color << " in check ..." << std::endl; 
     Board clonedBoard = board;
-    // clonedBoard.simulateMove(depRow, depCol, destRow, destCol);
+    std::cout << "depRow: " << depRow << " depCol: " << depCol << std::endl; 
+    std::cout << "destRow: " << destRow << " destCol: " << destCol << std::endl;  
+    clonedBoard.simulateMove(depRow, depCol, destRow, destCol);
 
-    // int kingRow = -1, kingCol = -1;
+    int kingRow = -1, kingCol = -1;
 
-    // // Find our own king
-    // for (int r = 0; r < 8; ++r) {
-    //     for (int c = 0; c < 8; ++c) {
-    //         auto piece = clonedBoard.grid[r][c];
-    //         if (piece && piece->name == "king" && piece->color == color) {
-    //             kingRow = r;
-    //             kingCol = c;
-    //             break;
-    //         }
-    //     }
-    // }
-    // std::cout << "kingRow: "<< kingRow << " " << "kingCol: " << kingCol << std::endl;
+    // Find our own king
+    for (int r = 0; r < 8; ++r) {
+        for (int c = 0; c < 8; ++c) {
+            auto piece = clonedBoard.grid[r][c];
+            if (piece && piece->name == "king" && piece->color == color) {
+                kingRow = r;
+                kingCol = c;
+                break;
+            }
+        }
+    }
+    std::cout << color << " kingRow: "<< kingRow << " " << color << " kingCol: " << kingCol << std::endl;
 
-    // if (kingRow == -1) throw std::runtime_error("King not found");
+    if (kingRow == -1) throw std::runtime_error("King not found"); 
 
     // Can any opponent piece attack our king?
     for (int r = 0; r < 8; ++r) {
         for (int c = 0; c < 8; ++c) {
             auto piece = clonedBoard.grid[r][c];
             if (!piece || piece->color == color) continue; 
-            //std::cout << "Checking if " << piece->color << " " << piece->name << " can reach " << color << " king" << std::endl;
+            std::cout << "Checking if " << piece->color << " " << piece->name << " can reach " << color << " king" << std::endl;
             //const Piece& piece, int depRow, int depCol, int destRow, int destCol, bool isCapture, const Board& board  
-            if (pieceCanReach(*piece, r, c, destRow, destCol, true, clonedBoard)) {
+            if (pieceCanReach(*piece, r, c, kingRow, kingCol, true, clonedBoard)) {
                 return true;
             }
         }
@@ -52,6 +54,7 @@ bool isvalidNotation(const std::string& move){
 }
 
 ParsedSAN parseSAN(const std::string& move, const std::string& color, const Board& board) {
+    //std::cout << "[parseSAN] Parsing " << move << std::endl;
     ParsedSAN result{};
 
     const std::unordered_map<char, std::string> sanToPieceName = {
@@ -149,6 +152,8 @@ ParsedSAN parseSAN(const std::string& move, const std::string& color, const Boar
         }
     }
 
+    // std::cout << "[parseSAN] destFile: " << result.destFile << " destRank: " << result.destRank <<std::endl;
+    // std::cout << "[parseSAN] deptFile: " << result.deptFile << " deptRank: " << result.deptRank <<std::endl;
     return result;
 }
 
@@ -452,10 +457,10 @@ bool islegalMove(const Board&board, const ParsedSAN &parsed_move, const std::str
 
     std::string opp_color = (color == "white") ? "black" : "white";
 
-    int depRow = parsed_move.deptFile - 'a';
-    int depCol = 8 - parsed_move.deptRank;
-    int destRow = parsed_move.destFile - 'a';
-    int destCol = 8 - parsed_move.destRank; 
+    int depCol = parsed_move.deptFile - 'a';
+    int depRow = 8 - parsed_move.deptRank;
+    int destCol = parsed_move.destFile - 'a';
+    int destRow = 8 - parsed_move.destRank;
 
     if (isKingInCheck(board,color)){
         if (parsed_move.isCastle){
@@ -474,10 +479,9 @@ bool islegalMove(const Board&board, const ParsedSAN &parsed_move, const std::str
     if (isCheck(board,color,depRow,depCol,target_row,target_col)){
         std::cout << "[ERROR] This move puts yourself in check!" << std::endl;
         return false;
-    } 
-    // } else {
-    //     std::cout << "... it does not!" << std::endl;
-    // }
+    } else {
+        std::cout << "... it does not!" << std::endl;
+    }
     
     if (parsed_move.isCastle){
         //King and Rook need to be in the right place

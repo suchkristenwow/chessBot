@@ -128,16 +128,22 @@ TEST_CASE("INValid Castling","move"){
     REQUIRE(result.valid == false);
 }
 
-TEST_CASE("Cant put yourself in check","move"){
+TEST_CASE("Cant leave yourself in check","move"){
     Board board;
     board.movePiece("d4","white");
     board.movePiece("e5","black");
     board.movePiece("f4","white");
-    board.movePiece("Qxg5","black"); 
-    board.movePiece("f4","white"); 
-    board.movePiece("Qxf4","black");
-    board.movePiece("h3","white");
-    board.movePiece("Qh4+","black");
-    auto result = MoveValidator::isvalidMove(board,"Qd3","white");
+    board.movePiece("Qh4+","black"); 
+    auto result = MoveValidator::isvalidMove(board,"c3","white");
+    REQUIRE(result.valid == false);
+}
+
+TEST_CASE("Cant put yourself in Check","move"){
+    Board board;
+    board.movePiece("d4","white");
+    board.movePiece("c5","black");
+    board.movePiece("Nc3","white");
+    board.movePiece("Qa5","black"); 
+    auto result = MoveValidator::isvalidMove(board,"Nd4","white");
     REQUIRE(result.valid == false);
 }
