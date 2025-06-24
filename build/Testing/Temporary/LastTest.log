@@ -1,0 +1,204 @@
+Start testing: Jun 13 10:42 EDT
+----------------------------------------------------------
+1/1 Testing: MoveValidatorTest
+1/1 Test: MoveValidatorTest
+Command: "/home/kristen/chessBot/build/test_move_validator"
+Directory: /home/kristen/chessBot/build
+"MoveValidatorTest" start time: Jun 13 10:42 EDT
+Output:
+----------------------------------------------------------
+[INFO] Checking move validity: e4
+[isvalidPattern: MoveValidator] iterating over the board looking for this piece: 
+[isvalidPattern: MoveValidator] Piece Name: pawn  Piece Color: white
+[isvalidPattern: MoveValidator] There are 1 candidate pieces.
+[islegalMove: MoveValidator] Checking if this move puts white in check
+... it does not!
+
+[INFO] Checking move validity: Ne5
+[isvalidPattern: MoveValidator] iterating over the board looking for this piece: 
+[isvalidPattern: MoveValidator] Piece Name: knight  Piece Color: white
+[isvalidPattern: MoveValidator] There are 0 candidate pieces.
+[INFO] Checking move validity: rh3
+[isvalidPattern: MoveValidator] iterating over the board looking for this piece: 
+[isvalidPattern: MoveValidator] Piece Name: rook  Piece Color: white
+[isvalidPattern: MoveValidator] There are 0 candidate pieces.
+[INFO] Checking move validity: e4
+[isvalidPattern: MoveValidator] iterating over the board looking for this piece: 
+[isvalidPattern: MoveValidator] Piece Name: pawn  Piece Color: white
+[isvalidPattern: MoveValidator] There are 1 candidate pieces.
+[islegalMove: MoveValidator] Checking if this move puts white in check
+... it does not!
+
+[INFO] Checking move validity: e4
+[isvalidPattern: MoveValidator] iterating over the board looking for this piece: 
+[isvalidPattern: MoveValidator] Piece Name: pawn  Piece Color: white
+[isvalidPattern: MoveValidator] There are 1 candidate pieces.
+[islegalMove: MoveValidator] Checking if this move puts white in check
+... it does not!
+
+[INFO] Checking move validity: e5
+[isvalidPattern: MoveValidator] iterating over the board looking for this piece: 
+[isvalidPattern: MoveValidator] Piece Name: pawn  Piece Color: black
+[isvalidPattern: MoveValidator] There are 1 candidate pieces.
+[islegalMove: MoveValidator] Checking if this move puts black in check
+... it does not!
+
+[INFO] Checking move validity: e5
+[isvalidPattern: MoveValidator] iterating over the board looking for this piece: 
+[isvalidPattern: MoveValidator] Piece Name: pawn  Piece Color: black
+[isvalidPattern: MoveValidator] There are 1 candidate pieces.
+[islegalMove: MoveValidator] Checking if this move puts black in check
+... it does not!
+
+[INFO] Checking move validity: bf5
+[isvalidPattern: MoveValidator] iterating over the board looking for this piece: 
+[isvalidPattern: MoveValidator] Piece Name: bishop  Piece Color: white
+[isvalidPattern: MoveValidator] There are 2 candidate pieces.
+[islegalMove: MoveValidator] Checking if this move puts white in check
+... it does not!
+
+[INFO] Checking move validity: e4
+[isvalidPattern: MoveValidator] iterating over the board looking for this piece: 
+[isvalidPattern: MoveValidator] Piece Name: pawn  Piece Color: white
+[isvalidPattern: MoveValidator] There are 1 candidate pieces.
+[islegalMove: MoveValidator] Checking if this move puts white in check
+... it does not!
+
+[INFO] Checking move validity: e4
+[isvalidPattern: MoveValidator] iterating over the board looking for this piece: 
+[isvalidPattern: MoveValidator] Piece Name: pawn  Piece Color: white
+[isvalidPattern: MoveValidator] There are 1 candidate pieces.
+[islegalMove: MoveValidator] Checking if this move puts white in check
+... it does not!
+
+[INFO] Checking move validity: e5
+[isvalidPattern: MoveValidator] iterating over the board looking for this piece: 
+[isvalidPattern: MoveValidator] Piece Name: pawn  Piece Color: black
+[isvalidPattern: MoveValidator] There are 1 candidate pieces.
+[islegalMove: MoveValidator] Checking if this move puts black in check
+... it does not!
+
+[INFO] Checking move validity: e5
+[isvalidPattern: MoveValidator] iterating over the board looking for this piece: 
+[isvalidPattern: MoveValidator] Piece Name: pawn  Piece Color: black
+[isvalidPattern: MoveValidator] There are 1 candidate pieces.
+[islegalMove: MoveValidator] Checking if this move puts black in check
+... it does not!
+
+[INFO] Checking move validity: Be3
+[isvalidPattern: MoveValidator] iterating over the board looking for this piece: 
+[isvalidPattern: MoveValidator] Piece Name: bishop  Piece Color: white
+[isvalidPattern: MoveValidator] There are 2 candidate pieces.
+[islegalMove: MoveValidator] Checking if this move puts white in check
+... it does not!
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+test_move_validator is a Catch v2.13.10 host application.
+Run with -? for options
+
+-------------------------------------------------------------------------------
+Invalid bishop Move
+-------------------------------------------------------------------------------
+/home/kristen/chessBot/tests/test_move_validator.cpp:40
+...............................................................................
+
+/home/kristen/chessBot/tests/test_move_validator.cpp:48: FAILED:
+  REQUIRE( result.valid == false )
+with expansion:
+  true == false
+
+[INFO] Checking move validity: e4
+[isvalidPattern: MoveValidator] iterating over the board looking for this piece: 
+[isvalidPattern: MoveValidator] Piece Name: pawn  Piece Color: white
+[isvalidPattern: MoveValidator] There are 1 candidate pieces.
+[islegalMove: MoveValidator] Checking if this move puts white in check
+... it does not!
+
+[INFO] Checking move validity: e4
+[isvalidPattern: MoveValidator] iterating over the board looking for this piece: 
+[isvalidPattern: MoveValidator] Piece Name: pawn  Piece Color: white
+[isvalidPattern: MoveValidator] There are 1 candidate pieces.
+[islegalMove: MoveValidator] Checking if this move puts white in check
+... it does not!
+
+[INFO] Checking move validity: e5
+[isvalidPattern: MoveValidator] iterating over the board looking for this piece: 
+[isvalidPattern: MoveValidator] Piece Name: pawn  Piece Color: black
+[isvalidPattern: MoveValidator] There are 1 candidate pieces.
+[islegalMove: MoveValidator] Checking if this move puts black in check
+... it does not!
+
+[INFO] Checking move validity: e5
+[isvalidPattern: MoveValidator] iterating over the board looking for this piece: 
+[isvalidPattern: MoveValidator] Piece Name: pawn  Piece Color: black
+[isvalidPattern: MoveValidator] There are 1 candidate pieces.
+[islegalMove: MoveValidator] Checking if this move puts black in check
+... it does not!
+
+[INFO] Checking move validity: bc4
+[isvalidPattern: MoveValidator] iterating over the board looking for this piece: 
+[isvalidPattern: MoveValidator] Piece Name: bishop  Piece Color: white
+[isvalidPattern: MoveValidator] There are 2 candidate pieces.
+[islegalMove: MoveValidator] Checking if this move puts white in check
+... it does not!
+
+[INFO] Checking move validity: bc4
+[isvalidPattern: MoveValidator] iterating over the board looking for this piece: 
+[isvalidPattern: MoveValidator] Piece Name: bishop  Piece Color: white
+[isvalidPattern: MoveValidator] There are 2 candidate pieces.
+[islegalMove: MoveValidator] Checking if this move puts white in check
+... it does not!
+
+[INFO] Checking move validity: Nc6
+[isvalidPattern: MoveValidator] iterating over the board looking for this piece: 
+[isvalidPattern: MoveValidator] Piece Name: knight  Piece Color: black
+[isvalidPattern: MoveValidator] There are 1 candidate pieces.
+[islegalMove: MoveValidator] Checking if this move puts black in check
+... it does not!
+
+[INFO] Checking move validity: Nc6
+[isvalidPattern: MoveValidator] iterating over the board looking for this piece: 
+[isvalidPattern: MoveValidator] Piece Name: knight  Piece Color: black
+[isvalidPattern: MoveValidator] There are 1 candidate pieces.
+[islegalMove: MoveValidator] Checking if this move puts black in check
+... it does not!
+
+[INFO] Checking move validity: Qh5
+[isvalidPattern: MoveValidator] iterating over the board looking for this piece: 
+[isvalidPattern: MoveValidator] Piece Name: queen  Piece Color: white
+[isvalidPattern: MoveValidator] There are 1 candidate pieces.
+[islegalMove: MoveValidator] Checking if this move puts white in check
+... it does not!
+
+[INFO] Checking move validity: Qh5
+[isvalidPattern: MoveValidator] iterating over the board looking for this piece: 
+[isvalidPattern: MoveValidator] Piece Name: queen  Piece Color: white
+[isvalidPattern: MoveValidator] There are 1 candidate pieces.
+[islegalMove: MoveValidator] Checking if this move puts white in check
+... it does not!
+
+[INFO] Checking move validity: f6
+[isvalidPattern: MoveValidator] iterating over the board looking for this piece: 
+[isvalidPattern: MoveValidator] Piece Name: pawn  Piece Color: black
+[isvalidPattern: MoveValidator] There are 1 candidate pieces.
+[islegalMove: MoveValidator] Checking if this move puts black in check
+... it does not!
+
+[INFO] Checking move validity: f6
+[isvalidPattern: MoveValidator] iterating over the board looking for this piece: 
+[isvalidPattern: MoveValidator] Piece Name: pawn  Piece Color: black
+[isvalidPattern: MoveValidator] There are 0 candidate pieces.
+===============================================================================
+test cases:  6 |  5 passed | 1 failed
+assertions: 15 | 14 passed | 1 failed
+
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Failed.
+"MoveValidatorTest" end time: Jun 13 10:42 EDT
+"MoveValidatorTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jun 13 10:42 EDT

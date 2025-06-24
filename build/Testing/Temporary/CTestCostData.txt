@@ -1,0 +1,3 @@
+MoveValidatorTest 1 0
+---
+MoveValidatorTest

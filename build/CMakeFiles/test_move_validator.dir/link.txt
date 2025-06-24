@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/test_move_validator.dir/tests/test_move_validator.cpp.o CMakeFiles/test_move_validator.dir/src/board.cpp.o CMakeFiles/test_move_validator.dir/src/piece.cpp.o CMakeFiles/test_move_validator.dir/src/move_validator.cpp.o CMakeFiles/test_move_validator.dir/src/game_manager.cpp.o -o test_move_validator 

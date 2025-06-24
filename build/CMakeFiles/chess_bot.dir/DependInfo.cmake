@@ -10,6 +10,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/kristen/chessBot/main.cpp" "CMakeFiles/chess_bot.dir/main.cpp.o" "gcc" "CMakeFiles/chess_bot.dir/main.cpp.o.d"
   "/home/kristen/chessBot/src/board.cpp" "CMakeFiles/chess_bot.dir/src/board.cpp.o" "gcc" "CMakeFiles/chess_bot.dir/src/board.cpp.o.d"
+  "/home/kristen/chessBot/src/game_manager.cpp" "CMakeFiles/chess_bot.dir/src/game_manager.cpp.o" "gcc" "CMakeFiles/chess_bot.dir/src/game_manager.cpp.o.d"
+  "/home/kristen/chessBot/src/move_validator.cpp" "CMakeFiles/chess_bot.dir/src/move_validator.cpp.o" "gcc" "CMakeFiles/chess_bot.dir/src/move_validator.cpp.o.d"
   "/home/kristen/chessBot/src/piece.cpp" "CMakeFiles/chess_bot.dir/src/piece.cpp.o" "gcc" "CMakeFiles/chess_bot.dir/src/piece.cpp.o.d"
   )
 

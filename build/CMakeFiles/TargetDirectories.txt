@@ -1,3 +1,6 @@
 /home/kristen/chessBot/build/CMakeFiles/chess_bot.dir
+/home/kristen/chessBot/build/CMakeFiles/test_gameOver.dir
+/home/kristen/chessBot/build/CMakeFiles/test_move_validator.dir
+/home/kristen/chessBot/build/CMakeFiles/test.dir
 /home/kristen/chessBot/build/CMakeFiles/edit_cache.dir
 /home/kristen/chessBot/build/CMakeFiles/rebuild_cache.dir
