@@ -34,6 +34,14 @@ add_executable(test_move_validator
     src/game_manager.cpp
 )
 
+add_executable(replay_pgn
+    src/pgn_replayer.cpp
+    src/board.cpp
+    src/piece.cpp
+    src/move_validator.cpp
+)
+target_include_directories(replay_pgn PRIVATE include)
+
 enable_testing()
 
 # Link and register tests

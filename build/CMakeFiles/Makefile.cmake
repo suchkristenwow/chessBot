@@ -50,4 +50,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/chess_bot.dir/DependInfo.cmake"
   "CMakeFiles/test_gameOver.dir/DependInfo.cmake"
   "CMakeFiles/test_move_validator.dir/DependInfo.cmake"
+  "CMakeFiles/replay_pgn.dir/DependInfo.cmake"
   )

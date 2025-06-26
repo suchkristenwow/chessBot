@@ -7,16 +7,15 @@ Board::Board(){
 }
 
 void Board::simulateMove(int depRow, int depCol, int destRow, int destCol) {
-    printBoard();
     auto piece = grid[depRow][depCol];
     if (!piece) {
         std::cerr << "[simulateMove] Error: No piece at source square (" << depRow << ", " << depCol << ")" << std::endl;
         return;
     }
 
-    std::cout << "Removing " << piece->color << " " << piece->name
-              << " from row: " << depRow << " col: " << depCol << std::endl;
-    std::cout << "Placing this piece at row: " << destRow << " col: " << destCol << std::endl;
+    // std::cout << "Removing " << piece->color << " " << piece->name
+    //           << " from row: " << depRow << " col: " << depCol << std::endl;
+    // std::cout << "Placing this piece at row: " << destRow << " col: " << destCol << std::endl;
 
     grid[destRow][destCol] = piece;
     grid[depRow][depCol] = nullptr;
@@ -76,6 +75,32 @@ void Board::movePiece(const std::string& algebraic_move, const std::string &colo
 
     auto movingPiece = grid[depRow][depCol];
 
+    // Handle castling
+    if (parsed_move.isCastle) {
+        int row = (color == "white") ? 7 : 0;
+        int kingStartCol = 4;
+        int rookStartCol = (destCol == 6) ? 7 : 0;  // kingside = h-file, queenside = a-file
+        int rookDestCol = (destCol == 6) ? 5 : 3;
+
+        // Move king
+        auto king = grid[row][kingStartCol];
+        grid[row][destCol] = king;
+        grid[row][kingStartCol] = nullptr;
+
+        king->hasMoved = true;
+        king->moveHistory.push_back({row, destCol});
+
+        // Move rook
+        auto rook = grid[row][rookStartCol];
+        grid[row][rookDestCol] = rook;
+        grid[row][rookStartCol] = nullptr;
+
+        rook->hasMoved = true;
+        rook->moveHistory.push_back({row, rookDestCol});
+
+        return;
+    }
+    
     if (!movingPiece){
         std::cout << "[BOARD] ERROR: Piece not instantiated at desired square!" << std::endl;
         return;
@@ -234,7 +259,6 @@ std::string Board::loadFEN(const std::string& fen){
         }
     }
     std::cout << "Done loading FEN this is the board ... " << std::endl;
-    printBoard();
     std::string turn = (activeColor == "w") ? "white" : "black";
     return turn;
 }

@@ -165,6 +165,19 @@ test_move_validator/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_move_validator.dir/build.make CMakeFiles/test_move_validator.dir/build
 .PHONY : test_move_validator/fast
 
+#=============================================================================
+# Target rules for targets named replay_pgn
+
+# Build rule for target.
+replay_pgn: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 replay_pgn
+.PHONY : replay_pgn
+
+# fast build rule for target.
+replay_pgn/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/build
+.PHONY : replay_pgn/fast
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -197,6 +210,7 @@ src/board.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_bot.dir/build.make CMakeFiles/chess_bot.dir/src/board.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gameOver.dir/build.make CMakeFiles/test_gameOver.dir/src/board.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_move_validator.dir/build.make CMakeFiles/test_move_validator.dir/src/board.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/src/board.cpp.o
 .PHONY : src/board.cpp.o
 
 src/board.i: src/board.cpp.i
@@ -207,6 +221,7 @@ src/board.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_bot.dir/build.make CMakeFiles/chess_bot.dir/src/board.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gameOver.dir/build.make CMakeFiles/test_gameOver.dir/src/board.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_move_validator.dir/build.make CMakeFiles/test_move_validator.dir/src/board.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/src/board.cpp.i
 .PHONY : src/board.cpp.i
 
 src/board.s: src/board.cpp.s
@@ -217,6 +232,7 @@ src/board.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_bot.dir/build.make CMakeFiles/chess_bot.dir/src/board.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gameOver.dir/build.make CMakeFiles/test_gameOver.dir/src/board.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_move_validator.dir/build.make CMakeFiles/test_move_validator.dir/src/board.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/src/board.cpp.s
 .PHONY : src/board.cpp.s
 
 src/game_manager.o: src/game_manager.cpp.o
@@ -257,6 +273,7 @@ src/move_validator.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_bot.dir/build.make CMakeFiles/chess_bot.dir/src/move_validator.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gameOver.dir/build.make CMakeFiles/test_gameOver.dir/src/move_validator.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_move_validator.dir/build.make CMakeFiles/test_move_validator.dir/src/move_validator.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/src/move_validator.cpp.o
 .PHONY : src/move_validator.cpp.o
 
 src/move_validator.i: src/move_validator.cpp.i
@@ -267,6 +284,7 @@ src/move_validator.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_bot.dir/build.make CMakeFiles/chess_bot.dir/src/move_validator.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gameOver.dir/build.make CMakeFiles/test_gameOver.dir/src/move_validator.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_move_validator.dir/build.make CMakeFiles/test_move_validator.dir/src/move_validator.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/src/move_validator.cpp.i
 .PHONY : src/move_validator.cpp.i
 
 src/move_validator.s: src/move_validator.cpp.s
@@ -277,7 +295,32 @@ src/move_validator.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_bot.dir/build.make CMakeFiles/chess_bot.dir/src/move_validator.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gameOver.dir/build.make CMakeFiles/test_gameOver.dir/src/move_validator.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_move_validator.dir/build.make CMakeFiles/test_move_validator.dir/src/move_validator.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/src/move_validator.cpp.s
 .PHONY : src/move_validator.cpp.s
+
+src/pgn_replayer.o: src/pgn_replayer.cpp.o
+.PHONY : src/pgn_replayer.o
+
+# target to build an object file
+src/pgn_replayer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/src/pgn_replayer.cpp.o
+.PHONY : src/pgn_replayer.cpp.o
+
+src/pgn_replayer.i: src/pgn_replayer.cpp.i
+.PHONY : src/pgn_replayer.i
+
+# target to preprocess a source file
+src/pgn_replayer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/src/pgn_replayer.cpp.i
+.PHONY : src/pgn_replayer.cpp.i
+
+src/pgn_replayer.s: src/pgn_replayer.cpp.s
+.PHONY : src/pgn_replayer.s
+
+# target to generate assembly for a file
+src/pgn_replayer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/src/pgn_replayer.cpp.s
+.PHONY : src/pgn_replayer.cpp.s
 
 src/piece.o: src/piece.cpp.o
 .PHONY : src/piece.o
@@ -287,6 +330,7 @@ src/piece.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_bot.dir/build.make CMakeFiles/chess_bot.dir/src/piece.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gameOver.dir/build.make CMakeFiles/test_gameOver.dir/src/piece.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_move_validator.dir/build.make CMakeFiles/test_move_validator.dir/src/piece.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/src/piece.cpp.o
 .PHONY : src/piece.cpp.o
 
 src/piece.i: src/piece.cpp.i
@@ -297,6 +341,7 @@ src/piece.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_bot.dir/build.make CMakeFiles/chess_bot.dir/src/piece.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gameOver.dir/build.make CMakeFiles/test_gameOver.dir/src/piece.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_move_validator.dir/build.make CMakeFiles/test_move_validator.dir/src/piece.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/src/piece.cpp.i
 .PHONY : src/piece.cpp.i
 
 src/piece.s: src/piece.cpp.s
@@ -307,6 +352,7 @@ src/piece.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_bot.dir/build.make CMakeFiles/chess_bot.dir/src/piece.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gameOver.dir/build.make CMakeFiles/test_gameOver.dir/src/piece.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_move_validator.dir/build.make CMakeFiles/test_move_validator.dir/src/piece.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/src/piece.cpp.s
 .PHONY : src/piece.cpp.s
 
 tests/test_gameOver.o: tests/test_gameOver.cpp.o
@@ -367,6 +413,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... chess_bot"
+	@echo "... replay_pgn"
 	@echo "... test_gameOver"
 	@echo "... test_move_validator"
 	@echo "... main.o"
@@ -381,6 +428,9 @@ help:
 	@echo "... src/move_validator.o"
 	@echo "... src/move_validator.i"
 	@echo "... src/move_validator.s"
+	@echo "... src/pgn_replayer.o"
+	@echo "... src/pgn_replayer.i"
+	@echo "... src/pgn_replayer.s"
 	@echo "... src/piece.o"
 	@echo "... src/piece.i"
 	@echo "... src/piece.s"

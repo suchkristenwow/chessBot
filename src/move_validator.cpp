@@ -5,10 +5,10 @@ namespace MoveValidator{
 
     
 bool isCheck(const Board& board, const std::string& color, int depRow, int depCol, int destRow, int destCol) {
-    std::cout << "Checking if this move would put " << color << " in check ..." << std::endl; 
+    //std::cout << "inside isCheck ... Checking if this move would put " << color << " in check ..." << std::endl; 
     Board clonedBoard = board;
-    std::cout << "depRow: " << depRow << " depCol: " << depCol << std::endl; 
-    std::cout << "destRow: " << destRow << " destCol: " << destCol << std::endl;  
+    // std::cout << "depRow: " << depRow << " depCol: " << depCol << std::endl; 
+    // std::cout << "destRow: " << destRow << " destCol: " << destCol << std::endl;  
     clonedBoard.simulateMove(depRow, depCol, destRow, destCol);
 
     int kingRow = -1, kingCol = -1;
@@ -24,7 +24,7 @@ bool isCheck(const Board& board, const std::string& color, int depRow, int depCo
             }
         }
     }
-    std::cout << color << " kingRow: "<< kingRow << " " << color << " kingCol: " << kingCol << std::endl;
+    // std::cout << color << " kingRow: "<< kingRow << " " << color << " kingCol: " << kingCol << std::endl;
 
     if (kingRow == -1) throw std::runtime_error("King not found"); 
 
@@ -33,7 +33,8 @@ bool isCheck(const Board& board, const std::string& color, int depRow, int depCo
         for (int c = 0; c < 8; ++c) {
             auto piece = clonedBoard.grid[r][c];
             if (!piece || piece->color == color) continue; 
-            std::cout << "Checking if " << piece->color << " " << piece->name << " can reach " << color << " king" << std::endl;
+            // std::cout << "Found opponent piece ... Checking the reach of piece at row: " << r << " and col: " << c << std::endl; 
+            // std::cout << "Checking if " << piece->color << " " << piece->name << " can reach " << color << " king" << std::endl;
             //const Piece& piece, int depRow, int depCol, int destRow, int destCol, bool isCapture, const Board& board  
             if (pieceCanReach(*piece, r, c, kingRow, kingCol, true, clonedBoard)) {
                 return true;
@@ -45,118 +46,120 @@ bool isCheck(const Board& board, const std::string& color, int depRow, int depCo
 }
 
 bool isvalidNotation(const std::string& move){
+    std::string trimmed = move;
+    trimmed.erase(0, trimmed.find_first_not_of(" \t\n\r\f\v"));  // left trim
+    trimmed.erase(trimmed.find_last_not_of(" \t\n\r\f\v") + 1);  // right trim
+
     static const std::regex sanPattern(
         R"(^(O-O(-O)?|[KQRNB]?[a-h]?[1-8]?x?[a-h][1-8](=[QRNB])?[+#]?)$)",
         std::regex::icase
     );
 
-    return std::regex_match(move, sanPattern);
+    return std::regex_match(trimmed, sanPattern);
 }
 
-ParsedSAN parseSAN(const std::string& move, const std::string& color, const Board& board) {
-    //std::cout << "[parseSAN] Parsing " << move << std::endl;
+ParsedSAN parseSAN(const std::string& raw_move, const std::string& color, const Board& board) {
     ParsedSAN result{};
 
     const std::unordered_map<char, std::string> sanToPieceName = {
-        {'K', "king"},
-        {'Q', "queen"},
-        {'R', "rook"},
-        {'B', "bishop"},
-        {'N', "knight"}
+        {'K', "king"}, {'Q', "queen"}, {'R', "rook"}, {'B', "bishop"}, {'N', "knight"}
     };
 
+    std::string move = raw_move;
+    move.erase(0, move.find_first_not_of(" \t\n\r\f\v"));
+    move.erase(move.find_last_not_of(" \t\n\r\f\v") + 1);
+
     if (move == "O-O" || move == "O-O-O") {
-        result.isCastle = true; 
+        result.isCastle = true;
         result.pieceType = "king";
         result.destFile = (move == "O-O") ? 'g' : 'c';
         result.destRank = (color == "white") ? 1 : 8;
-        //result.isCheck = isCheck(move, color, board);
-
-        // Departure square is always 'e1' for white or 'e8' for black
         result.deptFile = 'e';
         result.deptRank = (color == "white") ? 1 : 8;
-
         return result;
-    } else {
-        result.isCastle = false; 
     }
 
-    // Parse regular SAN move
+    result.isCastle = false;
+
     std::smatch matches;
-    std::regex pattern(
-        R"(^(?:([KQRNB])?([a-h1-8]{0,2})?(x)?([a-h][1-8])(=([QRNB]))?([+#])?)$)",
-        std::regex::icase
-    );
+    std::regex pattern(R"(^(?:([KQRNB])?([a-h1-8]{0,2})?(x)?([a-h][1-8])(=([QRNB]))?([+#])?)$)", std::regex::icase);
 
+    if (!std::regex_match(move, matches, pattern)) {
+        throw std::runtime_error("Invalid SAN format: " + move);
+    }
 
-    if (std::regex_match(move, matches, pattern)) {
-        std::string piece = matches[1].str();
-        if (piece.empty()) {
-            result.pieceType = "pawn";
-        } else {
-            char symbol = std::toupper(piece[0]);
-            auto it = sanToPieceName.find(symbol);
-            if (it != sanToPieceName.end()) {
-                result.pieceType = it->second;
-            } else {
-                throw std::runtime_error("Unrecognized piece type in SAN.");
-            }
-        }
+    // Parse piece type
+    std::string piece = matches[1].str();
+    // if (piece.empty()) {
+    //     result.pieceType = "pawn";
+    // } else {
+    //     char symbol = std::toupper(piece[0]);
+    //     if (sanToPieceName.count(symbol)) {
+    //         result.pieceType = sanToPieceName.at(symbol);
+    //     } else {
+    //         throw std::runtime_error("Unrecognized piece symbol: " + piece);
+    //     }
+    // }
 
-        std::string disamb = matches[2].str();
-        if (disamb.size() == 1) {
-            if (std::isalpha(disamb[0])) result.disambiguationFile = disamb[0];
-            else result.disambiguationRank = disamb[0] - '0';
-        } else if (disamb.size() == 2) {
-            result.disambiguationFile = disamb[0];
-            result.disambiguationRank = disamb[1] - '0';
-        }
+    std::cout << "piece: " << piece << std::endl;
+    if (!piece.empty() && sanToPieceName.count(std::toupper(piece[0])) && move[0]!='b') {
+        result.pieceType = sanToPieceName.at(std::toupper(piece[0]));
+    } else if (move[0] == 'b'){
+        std::cout << "Patching ... I think this a pawn disambiguating file b - NOT a bishop" << std::endl; 
+        result.pieceType = "pawn"; //this a pawn with disambiguation file b
+    } else {
+        result.pieceType = "pawn";
+    } 
 
-        result.isCapture = !matches[3].str().empty();
+    // Disambiguation
+    std::string disamb = matches[2].str();
+    if (disamb.size() == 1) {
+        if (std::isalpha(disamb[0])) result.disambiguationFile = disamb[0];
+        else result.disambiguationRank = disamb[0] - '0';
+    } else if (disamb.size() == 2) {
+        result.disambiguationFile = disamb[0];
+        result.disambiguationRank = disamb[1] - '0';
+    }
 
-        std::string dest = matches[4].str();
+    // Capture
+    result.isCapture = !matches[3].str().empty();
 
-        if (dest.size() == 2) {
-            result.destFile = dest[0];
-            result.destRank = dest[1] - '0';
-        } else {
-            throw std::runtime_error("Invalid destination square in SAN.");
-        }
+    // Destination square
+    std::string dest = matches[4].str();
+    if (dest.size() != 2) throw std::runtime_error("Invalid destination square");
+    result.destFile = dest[0];
+    result.destRank = dest[1] - '0';
 
-        result.destFile = dest[0];
-        result.destRank = dest[1] - '0';
+    // Promotion
+    result.isPromotion = !matches[5].str().empty();
 
-        result.isPromotion = !matches[5].str().empty();
+    // Check / Mate flags
+    std::string checkFlag = matches[7].str();
+    result.isCheck = checkFlag == "+";
+    result.isMate = checkFlag == "#";
 
-        std::string checkFlag = matches[6].str();
-        result.isCheck = checkFlag == "+";
-        result.isMate = checkFlag == "#";
+    std::cout << "Determining departure square.... this is pieceType: " << result.pieceType << std::endl;
+    // Determine departure square (loop through board)
+    int destCol = result.destFile - 'a';
+    int destRow = 8 - result.destRank;
+    for (int row = 0; row < 8; ++row) {
+        for (int col = 0; col < 8; ++col) {
+            auto piece = board.grid[row][col];
+            if (!piece || piece->color != color) continue;
+            if (piece->name != result.pieceType) continue;
+            if (result.disambiguationFile && col != result.disambiguationFile - 'a') continue;
+            if (result.disambiguationRank && row != 8 - result.disambiguationRank) continue;
 
-        // Try to find the departure square by scanning the board
-        int destCol = result.destFile - 'a';
-        int destRow = 8 - result.destRank;
-        for (int row = 0; row < 8; ++row) {
-            for (int col = 0; col < 8; ++col) {
-                auto piece = board.grid[row][col];
-                if (!piece || piece->color != color) continue;
-                if (piece->name != result.pieceType) continue;
-                if (result.disambiguationFile && col != result.disambiguationFile - 'a') continue;
-                if (result.disambiguationRank && row != 8 - result.disambiguationRank) continue;
-                //const Piece& piece, int depRow, int depCol, int destRow, int destCol, bool isCapture, const Board& board
-                if (pieceCanReach(*piece, row, col, destRow, destCol, result.isCapture, board)) {
-                    result.deptFile = 'a' + col;
-                    result.deptRank = 8 - row;
-                    return result;  // First matching piece wins
-                }
+            if (pieceCanReach(*piece, row, col, destRow, destCol, result.isCapture, board)) {
+                result.deptFile = 'a' + col;
+                result.deptRank = 8 - row;
+                return result;
             }
         }
     }
 
-    // std::cout << "[parseSAN] destFile: " << result.destFile << " destRank: " << result.destRank <<std::endl;
-    // std::cout << "[parseSAN] deptFile: " << result.deptFile << " deptRank: " << result.deptRank <<std::endl;
     return result;
 }
-
 
 bool isValidPassant(const Piece& attacker, const Board& board){
     auto lastPos = attacker.moveHistory.back();
@@ -202,10 +205,11 @@ bool pieceCanReach(const Piece& piece, int depRow, int depCol, int destRow, int 
 
         //Check en passant
         bool possiblePassant = false; 
-        if (piece.moveHistory.size() == 2 && isCapture){
+        auto attacker = board.grid[depRow][depCol];
+        if (piece.moveHistory.size() == 2 && isCapture && !board.grid[destRow][destCol]){
             //could be en passant
             auto capturedPawn = board.grid[depRow][destCol]; 
-            if (capturedPawn){
+            if (capturedPawn && capturedPawn->name == "pawn" && attacker->name == "pawn"){
                 int prevRow = capturedPawn->moveHistory[0].first;
                 int currRow = capturedPawn->moveHistory[1].first;
                 if (std::abs(currRow - prevRow) == 2) {
@@ -216,6 +220,7 @@ bool pieceCanReach(const Piece& piece, int depRow, int depCol, int destRow, int 
 
         if (possiblePassant){
             bool validPassant = isValidPassant(piece,board);
+            std::cout << "[MoveValidator: pieceCanReach] WOW this is a valid passant?!!?" << std::endl;
             if (validPassant){
                 return true; 
             }
@@ -223,9 +228,10 @@ bool pieceCanReach(const Piece& piece, int depRow, int depCol, int destRow, int 
         //std::cout << "[pieceCanReach: MoveValidator] isCapture: " << isCapture << std::endl;
         // Capturing move (must be diagonal)
         if (isCapture) {
+            //std::cout << "colDelta: "  << colDelta << " rowDelta: " << rowDelta << " this is dir: " << dir << std::endl;
             if (std::abs(colDelta) != 1 || rowDelta != dir) {
                 return false;
-            }
+            } 
         } else {
             // Non-capturing move (must be straight forward)
             if (colDelta != 0) {
@@ -390,29 +396,29 @@ bool isvalidPattern(const Board&board, const ParsedSAN &parsed_move, const std::
     int target_row = 8 - parsed_move.destRank;
 
     //want to iterate over the board to determine where the piece is coming from
-    //std::cout << "[isvalidPattern: MoveValidator]  Iterating over the board looking for: Piece Name: "  << parsed_move.pieceType << "  Piece Color: " << color <<std::endl;
+    std::cout << "[isvalidPattern: MoveValidator]  Iterating over the board looking for: Piece Name: "  << parsed_move.pieceType << "  Piece Color: " << color <<std::endl;
 
     std::vector<std::shared_ptr<Piece>> candidate_pieces;
     for (int row=0; row<8; ++row){
         for (int col=0; col<8; ++col){
             auto piece = board.grid[row][col]; //remember this is a shared pointer
             if (!piece) continue;
-            //std::cout << "This is a " << piece->color << " " << piece->name << std::endl;
+            std::cout << "This is a " << piece->color << " " << piece->name << std::endl;
             if (!piece || piece->color != color) continue;
             if (piece->name != parsed_move.pieceType) continue;
             //if (parsed_move.disambiguationFile && col != (parsed_move.disambiguationFile)) continue;
             //if (parsed_move.disambiguationRank && row != (8 - (parsed_move.disambiguationRank))) continue;
             //we have found the piece that this move is referring to 
-            //const Piece& piece, int depRow, int depCol, int destRow, int destCol, bool isCapture, const Board& board
             if (pieceCanReach(*piece,row,col,target_row,target_col,isCapture,board)){
+                std::cout << "We have found the piece that this move is referring to!" << std::endl;
                 candidate_pieces.push_back(piece);
             } 
             else{
-                //std::cout << "[isvalidPattern: MoveValidator]  The piece cant reach the desired square!" << std::endl;
+                std::cout << "[isvalidPattern: MoveValidator]  The piece cant reach the desired square!" << std::endl;
             }
         }
     }
-    //std::cout << "[isvalidPattern: MoveValidator]  There are " << candidate_pieces.size() << " candidate pieces." << std::endl;
+    std::cout << "[isvalidPattern: MoveValidator]  There are " << candidate_pieces.size() << " candidate pieces." << std::endl;
     return !candidate_pieces.empty();
 }
 
@@ -475,13 +481,13 @@ bool islegalMove(const Board&board, const ParsedSAN &parsed_move, const std::str
         }
     }
 
-    std::cout << "[islegalMove: MoveValidator] Checking if this move puts " << color << " in check" << std::endl;
+    //std::cout << "[islegalMove: MoveValidator] Checking if this move puts " << color << " in check" << std::endl;
     if (isCheck(board,color,depRow,depCol,target_row,target_col)){
         std::cout << "[ERROR] This move puts yourself in check!" << std::endl;
-        return false;
-    } else {
-        std::cout << "... it does not!" << std::endl;
-    }
+        return false;}
+    // } else {
+    //     std::cout << "... it does not!" << std::endl;
+    // }
     
     if (parsed_move.isCastle){
         //King and Rook need to be in the right place
@@ -529,7 +535,7 @@ MoveResult isvalidMove(const Board& board, const std::string& move, const std::s
     //std::cout << "[INFO] Checking move validity: " << move << std::endl;
     //Step 1: Notation check 
     if (!isvalidNotation(move)){
-        std::cout << "[ERROR]: This: "<< move << " is not a valid SAN move." << std::endl;
+        //std::cout << "[ERROR]: This: "<< move << " is not a valid SAN move." << std::endl;
         return MoveResult::error("ERROR: This is not a valid SAN move.");
     }
 
@@ -537,16 +543,14 @@ MoveResult isvalidMove(const Board& board, const std::string& move, const std::s
 
     //Step 2: Check validity of pattern
     if (!isvalidPattern(board,parsed_move,color)){
-        std::cout << "[ERROR]: That piece cannot move that way." << std::endl;
+        //std::cout << "[ERROR]: That piece cannot move that way." << std::endl;
         return MoveResult::error("ERROR: That piece cannot move that way.");
     }
     //Step 3: Check legality of the move 
     if (!islegalMove(board,parsed_move,color)){
-        std::cout << "[ERROR]: This move is illegal." << std::endl;
+        //std::cout << "[ERROR]: This move is illegal." << std::endl;
         return MoveResult::error("ERROR: This move is illegal.");
     }
-
-    std::cout << "" << std::endl;
     return MoveResult::success();
 }
 
