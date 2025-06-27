@@ -260,7 +260,10 @@ CMakeFiles/replay_pgn.dir/src/board.cpp.o: ../src/board.cpp \
   /usr/include/c++/11/bits/hashtable.h \
   /usr/include/c++/11/bits/hashtable_policy.h \
   /usr/include/c++/11/bits/enable_special_members.h \
-  /usr/include/c++/11/bits/unordered_map.h
+  /usr/include/c++/11/bits/unordered_map.h \
+  /usr/include/c++/11/set \
+  /usr/include/c++/11/bits/stl_set.h \
+  /usr/include/c++/11/bits/stl_multiset.h
 
 CMakeFiles/replay_pgn.dir/src/move_validator.cpp.o: ../src/move_validator.cpp \
   /usr/include/stdc-predef.h \
@@ -518,6 +521,9 @@ CMakeFiles/replay_pgn.dir/src/move_validator.cpp.o: ../src/move_validator.cpp \
   /usr/include/c++/11/bits/hashtable_policy.h \
   /usr/include/c++/11/bits/enable_special_members.h \
   /usr/include/c++/11/bits/unordered_map.h \
+  /usr/include/c++/11/set \
+  /usr/include/c++/11/bits/stl_set.h \
+  /usr/include/c++/11/bits/stl_multiset.h \
   ../include/board.hpp \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/iomanip \
@@ -783,6 +789,9 @@ CMakeFiles/replay_pgn.dir/src/pgn_replayer.cpp.o: ../src/pgn_replayer.cpp \
   /usr/include/c++/11/bits/hashtable_policy.h \
   /usr/include/c++/11/bits/enable_special_members.h \
   /usr/include/c++/11/bits/unordered_map.h \
+  /usr/include/c++/11/set \
+  /usr/include/c++/11/bits/stl_set.h \
+  /usr/include/c++/11/bits/stl_multiset.h \
   /usr/include/c++/11/fstream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
@@ -955,6 +964,12 @@ CMakeFiles/replay_pgn.dir/src/piece.cpp.o: ../src/piece.cpp \
 /usr/include/c++/11/fstream:
 
 ../src/move_validator.cpp:
+
+/usr/include/c++/11/bits/stl_multiset.h:
+
+/usr/include/c++/11/bits/stl_set.h:
+
+/usr/include/c++/11/set:
 
 /usr/include/c++/11/bits/unordered_map.h:
 

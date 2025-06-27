@@ -204,6 +204,8 @@ CMakeFiles/chess_bot.dir/src/move_validator.cpp.o: \
  /usr/include/c++/11/unordered_map /usr/include/c++/11/bits/hashtable.h \
  /usr/include/c++/11/bits/hashtable_policy.h \
  /usr/include/c++/11/bits/enable_special_members.h \
- /usr/include/c++/11/bits/unordered_map.h \
+ /usr/include/c++/11/bits/unordered_map.h /usr/include/c++/11/set \
+ /usr/include/c++/11/bits/stl_set.h \
+ /usr/include/c++/11/bits/stl_multiset.h \
  /home/kristen/chessBot/include/board.hpp /usr/include/c++/11/iostream \
  /usr/include/c++/11/iomanip /usr/include/c++/11/bits/quoted_string.h

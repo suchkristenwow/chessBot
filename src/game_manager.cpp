@@ -428,7 +428,7 @@ std::vector<std::string> GameManager::getAllLegalMoves(const std::string& color)
             auto piece = board.grid[row][col]; 
             if (!piece) continue;
             if (piece->color != color) continue; 
-            std::cout << "[checkGameOver:getAllLegalMoves] piece name: " << piece->name << " color: " << piece->color << std::endl;
+            //std::cout << "[checkGameOver:getAllLegalMoves] piece name: " << piece->name << " color: " << piece->color << std::endl;
             if (piece->name == "pawn"){
                 auto moves = getAllPawnMoves(row,col,color); 
                 legalMoves.insert(legalMoves.end(),moves.begin(),moves.end());
