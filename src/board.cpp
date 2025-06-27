@@ -9,9 +9,12 @@ Board::Board(){
 void Board::simulateMove(int depRow, int depCol, int destRow, int destCol) {
     auto piece = grid[depRow][depCol];
     if (!piece) {
-        std::cerr << "[simulateMove] Error: No piece at source square (" << depRow << ", " << depCol << ")" << std::endl;
+        //std::cerr << "[simulateMove] Error: No piece at source square (" << depRow << ", " << depCol << ")" << std::endl;
         return;
     }
+    // } else {
+    //     std::cout << "Moving a " << piece->color << " " << piece->name << std::endl;
+    // }
     grid[destRow][destCol] = piece;
     grid[depRow][depCol] = nullptr;
 }
@@ -94,8 +97,41 @@ void Board::movePiece(const std::string& algebraic_move, const std::string &colo
         return;
     }   
 
-    grid[destRow][destCol] = movingPiece;
-    grid[depRow][depCol] = nullptr;
+    if (parsed_move.isPromotion){
+        std::string name;
+        std::string displayName; 
+        int point_val;
+        switch (tolower(parsed_move.promotion_type)) {
+                case 'p': name = "pawn"; break;
+                case 'n': name = "knight"; break;
+                case 'b': name = "bishop"; break;
+                case 'r': name = "rook"; break;
+                case 'q': name = "queen"; break;
+                case 'k': name = "king"; break;
+            }
+        if (color == "white") {
+            if (name == "pawn")      { displayName = "w_P"; point_val = 1; }
+            else if (name == "knight"){ displayName = "w_N"; point_val = 3; }
+            else if (name == "bishop"){ displayName = "w_B"; point_val = 3; }
+            else if (name == "rook")  { displayName = "w_R"; point_val = 5; }
+            else if (name == "queen") { displayName = "w_Q"; point_val = 9; }
+            else if (name == "king")  { displayName = "w_K"; point_val = 1000; }
+        } else {
+            if (name == "pawn")      {displayName = "b_P"; point_val = 1; }
+            else if (name == "knight"){ displayName = "b_N"; point_val = 3; }
+            else if (name == "bishop"){ displayName = "b_B"; point_val = 3; }
+            else if (name == "rook")  { displayName = "b_R"; point_val = 5; }
+            else if (name == "queen") { displayName = "b_Q"; point_val = 9; }
+            else if (name == "king")  { displayName = "b_K"; point_val = 1000; }
+        } 
+        auto promotionPiece = std::make_shared<Piece>(name, color, displayName, point_val, destRow, destCol); 
+        promotionPiece->moveHistory = movingPiece->moveHistory;
+        grid[destRow][destCol] = promotionPiece;
+        grid[depRow][depCol] = nullptr; 
+    } else{
+        grid[destRow][destCol] = movingPiece;
+        grid[depRow][depCol] = nullptr;
+    }
 
     std::pair<int, int> lastMove = {destRow,destCol};
     movingPiece->moveHistory.push_back(lastMove);

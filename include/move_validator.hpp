@@ -31,6 +31,7 @@ namespace MoveValidator {
         bool isCheck = false;
         bool isMate = false;
         bool isCastle = false;
+        char promotion_type;
     };
 
     // Main validation API

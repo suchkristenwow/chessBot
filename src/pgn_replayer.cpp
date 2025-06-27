@@ -1,6 +1,7 @@
 // src/replay_pgn.cpp
 #include "board.hpp"
 #include "move_validator.hpp"
+#include "game_manager.hpp"
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -56,37 +57,39 @@ int main(int argc, char** argv) {
 
     std::stringstream buffer;
     buffer << file.rdbuf();
-    std::string pgnText = buffer.str();
-
-    Board board;
-    std::string currentColor = "white";
-
     std::string rawText = buffer.str();
     std::string movesText = extractMovesSection(rawText);
     auto moves = extractMovesFromPGN(movesText);
 
+    GameManager gm("none");  // 'none' disables user input logic
+    std::string currentColor = "white";
+
     for (const auto& move : moves) {
         if (isResultCode(move)) {
             std::cout << "Game ended with result: " << move << std::endl;
-            if (move == "1-0") std::cout << "White wins by resignation or checkmate." << std::endl;
-            else if (move == "0-1") std::cout << "Black wins by resignation or checkmate." << std::endl;
-            else if (move == "1/2-1/2") std::cout << "Game drawn." << std::endl;
-            break; // stop move processing
+            break;
         }
-        
+
         std::cout << currentColor << " plays: " << move << std::endl;
-        auto result = MoveValidator::isvalidMove(board, move, currentColor);
+        auto result = MoveValidator::isvalidMove(gm.board, move, currentColor);
         if (!result.valid) {
             std::cerr << "Invalid move: " << move << " Reason: " << result.reason << std::endl;
             return 1;
         }
-        board.movePiece(move, currentColor);
+
+        gm.board.movePiece(move, currentColor);
+        gm.board.printBoard();
+
+        if (gm.checkGameOver()) {
+            std::cout << "[Replay] Detected game over after move: " << move << "\n";
+            break;
+        }
+
         currentColor = (currentColor == "white") ? "black" : "white";
-        //TO DO: check gameOver 
-        board.printBoard();
-        std::cout << "" << std::endl; 
+        std::cout << "\n";
     }
-    
+
     std::cout << "Game replayed successfully.\n";
     return 0;
 }
+

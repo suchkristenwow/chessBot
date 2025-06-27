@@ -39,6 +39,7 @@ add_executable(replay_pgn
     src/board.cpp
     src/piece.cpp
     src/move_validator.cpp
+    src/game_manager.cpp
 )
 target_include_directories(replay_pgn PRIVATE include)
 

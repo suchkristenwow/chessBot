@@ -5,25 +5,42 @@ namespace MoveValidator{
 
     
 bool isCheck(const Board& board, const ParsedSAN &parsed_move, const std::string& color, int depRow, int depCol, int destRow, int destCol) {
-    //std::cout << "inside isCheck ... Checking if this move would put " << color << " in check ..." << std::endl; 
     Board clonedBoard = board;
-    // std::cout << "depRow: " << depRow << " depCol: " << depCol << std::endl; 
-    // std::cout << "destRow: " << destRow << " destCol: " << destCol << std::endl; 
-    clonedBoard.simulateMove(depRow, depCol, destRow, destCol);
 
-    if (parsed_move.isCastle){
-        //need to move the rook as well 
-        if (std::abs(destCol - depCol) == 2 && destCol == 6){
-            //Kingside Castle 
-            clonedBoard.simulateMove(depRow, 7, destRow, 5);
-        } else if (std::abs(destCol - depCol) == 2 && destCol == 2){
-            //Queenside castle
-            clonedBoard.simulateMove(depRow, 0, destRow, 3);
-        } else {
-             std::cerr << "[isCheck] ERROR: Unexpected castling destination column: " << destCol
-                  << ". Expected 6 (kingside) or 2 (queenside)." << std::endl;
+    auto pieceAtDep = clonedBoard.grid[depRow][depCol];
+    if (!pieceAtDep) {
+        //std::cerr << "[simulateMove] Error: No piece at source square (" << depRow << ", " << depCol << ")\n";
+        return false;  // Can't simulate this move
+    } 
+
+    if (parsed_move.isCastle) {
+        // Defensive check — don't simulate castling if there's no king
+        auto kingPiece = clonedBoard.grid[depRow][depCol];
+        if (!kingPiece || kingPiece->name != "king" || kingPiece->color != color) {
+            //std::cerr << "[isCheck] Cannot simulate castling — no king at starting square.\n";
+            return false;
         }
-    }
+
+        // Simulate king move
+        clonedBoard.simulateMove(depRow, depCol, destRow, destCol);
+
+        if (destCol == 6) {
+            // Kingside
+            if (clonedBoard.grid[depRow][7])
+                clonedBoard.simulateMove(depRow, 7, depRow, 5);
+        } else if (destCol == 2) {
+            // Queenside
+            if (clonedBoard.grid[depRow][0])
+                clonedBoard.simulateMove(depRow, 0, depRow, 3);
+        }
+    } else {
+        auto piece = clonedBoard.grid[depRow][depCol];
+        if (!piece) {
+            std::cerr << "[simulateMove] Error: No piece at source square (" << depRow << ", " << depCol << ")\n";
+            return false;
+        }
+        clonedBoard.simulateMove(depRow, depCol, destRow, destCol);
+    } 
 
     int kingRow = -1, kingCol = -1;
 
@@ -40,7 +57,7 @@ bool isCheck(const Board& board, const ParsedSAN &parsed_move, const std::string
     }
     // std::cout << color << " kingRow: "<< kingRow << " " << color << " kingCol: " << kingCol << std::endl;
 
-    if (kingRow == -1) throw std::runtime_error("King not found"); 
+    if (kingRow == -1 || kingCol == -1) throw std::runtime_error("King not found"); 
 
     // Can any opponent piece attack our king?
     for (int r = 0; r < 8; ++r) {
@@ -227,6 +244,15 @@ ParsedSAN parsePattern(const std::smatch& m, const std::string& color) {
     result.destRank = dest[1] - '0';
 
     result.isPromotion = !m[5].str().empty();
+    if (result.isPromotion){
+        std::string promo = m[5].str();
+        if (promo.size() == 2 && promo[0] == '=') {
+            result.promotion_type = std::toupper(promo[1]);  
+        } else {
+            std::cerr << "[parsePattern] Invalid promotion string: " << promo << std::endl;
+        }
+    }
+
     std::string checkFlag = m[7].str();
     result.isCheck = checkFlag == "+";
     result.isMate = checkFlag == "#";
@@ -537,20 +563,20 @@ bool islegalMove(const Board&board, const ParsedSAN &parsed_move, const std::str
 
     if (isKingInCheck(board,color)){
         if (parsed_move.isCastle){
-            std::cout << "You can't castle out of check! :(" << std::endl;
+            //std::cout << "Sorry, You can't castle out of check! :(" << std::endl;
             return false;
         }
         Board clonedBoard = board;
         clonedBoard.simulateMove(depRow, depCol, destRow, destCol);
         if (isKingInCheck(clonedBoard,color)){
-            std::cout << "This move leaves " << color << " in check!" << std::endl;
+            //std::cout << "This move leaves " << color << " in check!" << std::endl;
             return false; 
         }
     }
 
     //std::cout << "[islegalMove: MoveValidator] Checking if this move puts " << color << " in check" << std::endl;
     if (isCheck(board,parsed_move,color,depRow,depCol,target_row,target_col)){
-        std::cout << "[ERROR] This move puts yourself in check!" << std::endl;
+        //std::cout << "[ERROR] This move puts yourself in check!" << std::endl;
         return false;}
     // } else {
     //     std::cout << "... it does not!" << std::endl;

@@ -243,6 +243,7 @@ src/game_manager.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_bot.dir/build.make CMakeFiles/chess_bot.dir/src/game_manager.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gameOver.dir/build.make CMakeFiles/test_gameOver.dir/src/game_manager.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_move_validator.dir/build.make CMakeFiles/test_move_validator.dir/src/game_manager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/src/game_manager.cpp.o
 .PHONY : src/game_manager.cpp.o
 
 src/game_manager.i: src/game_manager.cpp.i
@@ -253,6 +254,7 @@ src/game_manager.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_bot.dir/build.make CMakeFiles/chess_bot.dir/src/game_manager.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gameOver.dir/build.make CMakeFiles/test_gameOver.dir/src/game_manager.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_move_validator.dir/build.make CMakeFiles/test_move_validator.dir/src/game_manager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/src/game_manager.cpp.i
 .PHONY : src/game_manager.cpp.i
 
 src/game_manager.s: src/game_manager.cpp.s
@@ -263,6 +265,7 @@ src/game_manager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_bot.dir/build.make CMakeFiles/chess_bot.dir/src/game_manager.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gameOver.dir/build.make CMakeFiles/test_gameOver.dir/src/game_manager.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_move_validator.dir/build.make CMakeFiles/test_move_validator.dir/src/game_manager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/src/game_manager.cpp.s
 .PHONY : src/game_manager.cpp.s
 
 src/move_validator.o: src/move_validator.cpp.o

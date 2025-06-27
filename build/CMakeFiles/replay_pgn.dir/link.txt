@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/replay_pgn.dir/src/pgn_replayer.cpp.o CMakeFiles/replay_pgn.dir/src/board.cpp.o CMakeFiles/replay_pgn.dir/src/piece.cpp.o CMakeFiles/replay_pgn.dir/src/move_validator.cpp.o -o replay_pgn 
+/usr/bin/c++ CMakeFiles/replay_pgn.dir/src/pgn_replayer.cpp.o CMakeFiles/replay_pgn.dir/src/board.cpp.o CMakeFiles/replay_pgn.dir/src/piece.cpp.o CMakeFiles/replay_pgn.dir/src/move_validator.cpp.o CMakeFiles/replay_pgn.dir/src/game_manager.cpp.o -o replay_pgn 

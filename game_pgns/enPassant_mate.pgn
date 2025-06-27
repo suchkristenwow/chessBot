@@ -1,0 +1,26 @@
+[Event "Live Chess"]
+[Site "Chess.com"]
+[Date "2022.11.15"]
+[Round "-"]
+[White "alphaous"]
+[Black "JoseLuisTorres1218"]
+[Result "1-0"]
+[CurrentPosition "N1b2b1r/1p3Q1p/n2p2Pk/1p3P2/4q3/2PpB3/PP3P2/R3K2R b KQ -"]
+[Timezone "UTC"]
+[ECO "B32"]
+[ECOUrl "https://www.chess.com/openings/Sicilian-Defense-Open-Lowenthal-Kalashnikov-Variation-6.N1c3-a6"]
+[UTCDate "2022.11.15"]
+[UTCTime "02:37:29"]
+[WhiteElo "1825"]
+[BlackElo "1751"]
+[TimeControl "180"]
+[Termination "alphaous won by checkmate"]
+[StartTime "02:37:29"]
+[EndDate "2022.11.15"]
+[EndTime "02:41:09"]
+[Link "https://www.chess.com/analysis/game/pgn/4zJYGeWhE6?tab=analysis"]
+
+1. e4 c5 2. Nf3 Nc6 3. d4 cxd4 4. Nxd4 e5 5. Nb5 d6 6. N1c3 a6 7. Bg5 f6 8. Be3
+axb5 9. Nd5 Nge7 10. Bb6 Qd7 11. Nc7+ Kf7 12. Nxa8 Nb4 
+13. c3 Na6 14. Qb3+ Kg6 15. h4 Qc6 16. h5+ Kh6 17. Qf7 f5 18. exf5 Nxf5 
+19. Bd3 e4 20. g4 exd3 21. gxf5 Qe4+ 22. Be3+ g5 23. hxg6# 

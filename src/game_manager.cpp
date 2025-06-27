@@ -31,7 +31,6 @@ void GameManager::start(){
 void GameManager::makeComputerMove(){
     // This function is responsible for making moves for the computer 
     std::string move; 
-    
     board.movePiece(move,currentTurn);
 }
 
@@ -68,7 +67,7 @@ bool GameManager::gameOver_helper(const std::string& color){
         }
     }
 
-    std::cout << "kingRow: "<< kingRow << " " << "kingCol: " << kingCol << std::endl;
+    //std::cout << "kingRow: "<< kingRow << " " << "kingCol: " << kingCol << std::endl;
     if (kingRow == -1 || kingCol == -1){
         std::cout << "no " << color << " King found!" << std::endl;
         winner = opponentColor;
@@ -77,11 +76,12 @@ bool GameManager::gameOver_helper(const std::string& color){
     }
     
     bool InCheck = MoveValidator::isKingInCheck(board, color);
-    if (InCheck){
-        std::cout << color << " is in Check!" << std::endl;
-    } else {
-        std::cout << color << " is NOT in Check!" << std::endl;
-    }
+    // if (InCheck){
+    //     std::cout << color << " is in Check!" << std::endl;
+    // } 
+    // else {
+    //     std::cout << color << " is NOT in Check!" << std::endl;
+    // }
 
     // Check if opponent has *any* legal moves
     bool HasLegalMove = !getAllLegalMoves(color).empty();
@@ -104,7 +104,7 @@ bool GameManager::gameOver_helper(const std::string& color){
 }
 
 bool GameManager::checkGameOver() {
-    std::cout << "[checkGameOver:GameManager] Checking if game over ... " << std::endl;
+    //std::cout << "[checkGameOver:GameManager] Checking if game over ... " << std::endl;
     if (gameOver_helper("white") || gameOver_helper("black")){
         return true; 
     }
@@ -371,7 +371,7 @@ std::vector<std::string> GameManager::getAllBishopMoves(int row, int col, const 
 }
 
 std::vector<std::string> GameManager::getAllKingMoves(int row, int col, const std::string& color){
-    std::cout << "Finding legal moves for " << color << " king" << std::endl;
+    //std::cout << "Finding legal moves for " << color << " king" << std::endl;
     std::vector<std::string> legalMoves; 
     const std::vector<std::pair<int, int>> kingOffsets = {
         {-1, -1}, {-1, 0},{-1,+1},
@@ -403,7 +403,7 @@ std::vector<std::string> GameManager::getAllKingMoves(int row, int col, const st
             continue; 
         }
         if (!move.empty() && MoveValidator::isvalidMove(board, move, color).valid) {
-            std::cout << "This move: " << move << "is valid" << std::endl;
+            //std::cout << "This move: " << move << "is valid" << std::endl;
             legalMoves.push_back(move);
         }
     }
@@ -421,7 +421,7 @@ std::vector<std::string> GameManager::getAllKingMoves(int row, int col, const st
 }
 
 std::vector<std::string> GameManager::getAllLegalMoves(const std::string& color){
-    std::cout << "[checkGameOver:getAllLegalMoves] finding legal moves for " << color << std::endl;
+    //std::cout << "[checkGameOver:getAllLegalMoves] finding legal moves for " << color << std::endl;
     std::vector<std::string> legalMoves; 
     for (int row=0;row<8; ++row){
         for (int col=0; col<8; ++col){
@@ -452,12 +452,12 @@ std::vector<std::string> GameManager::getAllLegalMoves(const std::string& color)
             }
         }
     }
-    std::cout << "[checkGameOver:getAllLegalMoves] there are " << legalMoves.size() <<  " legal moves." << std::endl;
-    if (legalMoves.size() < 5){
-        std::cout << "Legal Moves: " << std::endl; 
-        for (std::string move : legalMoves){
-            std::cout << move << std::endl;
-        }
-    }
+    //std::cout << "[checkGameOver:getAllLegalMoves] there are " << legalMoves.size() <<  " legal moves." << std::endl;
+    // if (legalMoves.size() < 5){
+    //     std::cout << "Legal Moves: " << std::endl; 
+    //     for (std::string move : legalMoves){
+    //         std::cout << move << std::endl;
+    //     }
+    // }
     return legalMoves;
 };
