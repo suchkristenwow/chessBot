@@ -67,8 +67,10 @@ bool GameManager::gameOver_helper(const std::string& color){
             }
         }
     }
+
     std::cout << "kingRow: "<< kingRow << " " << "kingCol: " << kingCol << std::endl;
     if (kingRow == -1 || kingCol == -1){
+        std::cout << "no " << color << " King found!" << std::endl;
         winner = opponentColor;
         gameOver = true; 
         return true; 
@@ -134,7 +136,7 @@ std::vector<std::string> GameManager::getAllPawnMoves(int row, int col, const st
     }
 
     auto piece = board.grid[row][col];
-    if (!piece->hasMoved){
+    if (piece->moveHistory.size() < 2){
         //it hasnt moved yet .... it could move 2 squares forward 
         if (color == "white"){
             //row can decrease

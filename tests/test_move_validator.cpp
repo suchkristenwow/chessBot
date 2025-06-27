@@ -104,15 +104,23 @@ TEST_CASE("Valid King-Side Castling","move"){
 TEST_CASE("Valid Queen-Side Castling","move"){
     Board board;
     board.movePiece("d4","white");
+    board.printBoard();
     board.movePiece("Nf6","black");
+    board.printBoard();
     board.movePiece("Nc3","white");
+    board.printBoard();
     board.movePiece("d5","black"); 
+    board.printBoard();
     board.movePiece("Qd3","white"); 
-    board.movePiece("Qb6","black");
+    board.printBoard();
+    board.movePiece("Qd6","black");
+    board.printBoard();
+    board.movePiece("Bg5","white");
+    board.printBoard();
+    board.movePiece("c6","black");
     auto result = MoveValidator::isvalidMove(board,"O-O-O","white");
     REQUIRE(result.valid == true);
 }
-
 
 TEST_CASE("INValid Castling","move"){
     Board board;
@@ -121,9 +129,9 @@ TEST_CASE("INValid Castling","move"){
     board.movePiece("Nc3","white");
     board.movePiece("d5","black"); 
     board.movePiece("Qd3","white"); 
-    board.movePiece("Qb6","black");
+    board.movePiece("Qd6","black");
     board.movePiece("Rb1","white");
-    board.movePiece("Ng8","black");
+    board.movePiece("Bf5","black");
     auto result = MoveValidator::isvalidMove(board,"O-O-O","white");
     REQUIRE(result.valid == false);
 }
@@ -144,6 +152,6 @@ TEST_CASE("Cant put yourself in Check","move"){
     board.movePiece("c5","black");
     board.movePiece("Nc3","white");
     board.movePiece("Qa5","black"); 
-    auto result = MoveValidator::isvalidMove(board,"Nd4","white");
+    auto result = MoveValidator::isvalidMove(board,"Nd5","white");
     REQUIRE(result.valid == false);
 }

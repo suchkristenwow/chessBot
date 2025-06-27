@@ -12,51 +12,42 @@ void Board::simulateMove(int depRow, int depCol, int destRow, int destCol) {
         std::cerr << "[simulateMove] Error: No piece at source square (" << depRow << ", " << depCol << ")" << std::endl;
         return;
     }
-
-    // std::cout << "Removing " << piece->color << " " << piece->name
-    //           << " from row: " << depRow << " col: " << depCol << std::endl;
-    // std::cout << "Placing this piece at row: " << destRow << " col: " << destCol << std::endl;
-
     grid[destRow][destCol] = piece;
     grid[depRow][depCol] = nullptr;
 }
 
 void Board::initialize(){
-    const std::string files = "abcdefgh";
     //Place Pawns
-    for (int col=0; col<8; ++col){
-        char file = files[col];
-        //black pawns
-        grid[1][col] = std::make_shared<Piece>("pawn","black","b_P",col,7,1);
-        //white pawns
-        grid[6][col] = std::make_shared<Piece>("pawn","white","w_P",col,2,1);
+    for (int col = 0; col < 8; ++col) {
+        grid[1][col] = std::make_shared<Piece>("pawn", "black", "b_P", 1, 1, col);
+        grid[6][col] = std::make_shared<Piece>("pawn", "white", "w_P", 1, 6, col);
     }
 
     // Place rooks
-    grid[0][0] = std::make_shared<Piece>("rook", "black", "b_R", 'a', 8, 5);
-    grid[0][7] = std::make_shared<Piece>("rook", "black", "b_R", 'h', 8, 5);
-    grid[7][0] = std::make_shared<Piece>("rook", "white", "w_R", 'a', 1, 5);
-    grid[7][7] = std::make_shared<Piece>("rook", "white", "w_R", 'h', 1, 5);
+    grid[0][0] = std::make_shared<Piece>("rook", "black", "b_R", 5, 0, 0);
+    grid[0][7] = std::make_shared<Piece>("rook", "black", "b_R", 5, 0, 7);
+    grid[7][0] = std::make_shared<Piece>("rook", "white", "w_R", 5, 7, 0);
+    grid[7][7] = std::make_shared<Piece>("rook", "white", "w_R", 5, 7, 7);
 
-    // Place knights
-    grid[0][1] = std::make_shared<Piece>("knight", "black", "b_N", 'b', 8, 3);
-    grid[0][6] = std::make_shared<Piece>("knight", "black", "b_N", 'g', 8, 3);
-    grid[7][1] = std::make_shared<Piece>("knight", "white", "w_N", 'b', 1, 3);
-    grid[7][6] = std::make_shared<Piece>("knight", "white", "w_N", 'g', 1, 3);
+    // Knights
+    grid[0][1] = std::make_shared<Piece>("knight", "black", "b_N", 3, 0, 1);
+    grid[0][6] = std::make_shared<Piece>("knight", "black", "b_N", 3, 0, 6);
+    grid[7][1] = std::make_shared<Piece>("knight", "white", "w_N", 3, 7, 1);
+    grid[7][6] = std::make_shared<Piece>("knight", "white", "w_N", 3, 7, 6);
 
-    // Place bishops
-    grid[0][2] = std::make_shared<Piece>("bishop", "black", "b_B", 'c', 8, 3);
-    grid[0][5] = std::make_shared<Piece>("bishop", "black", "b_B", 'f', 8, 3);
-    grid[7][2] = std::make_shared<Piece>("bishop", "white", "w_B", 'c', 1, 3);
-    grid[7][5] = std::make_shared<Piece>("bishop", "white", "w_B", 'f', 1, 3);
+    // Bishops
+    grid[0][2] = std::make_shared<Piece>("bishop", "black", "b_B", 3, 0, 2);
+    grid[0][5] = std::make_shared<Piece>("bishop", "black", "b_B", 3, 0, 5);
+    grid[7][2] = std::make_shared<Piece>("bishop", "white", "w_B", 3, 7, 2);
+    grid[7][5] = std::make_shared<Piece>("bishop", "white", "w_B", 3, 7, 5);
 
-    // Place queens
-    grid[0][3] = std::make_shared<Piece>("queen", "black", "b_Q", 'd', 8, 9);
-    grid[7][3] = std::make_shared<Piece>("queen", "white", "w_Q", 'd', 1, 9);
+    // Queens
+    grid[0][3] = std::make_shared<Piece>("queen", "black", "b_Q", 9, 0, 3);
+    grid[7][3] = std::make_shared<Piece>("queen", "white", "w_Q", 9, 7, 3);
 
-    // Place kings
-    grid[0][4] = std::make_shared<Piece>("king", "black", "b_K", 'e', 8, 1000);
-    grid[7][4] = std::make_shared<Piece>("king", "white", "w_K", 'e', 1, 1000);
+    // Kings
+    grid[0][4] = std::make_shared<Piece>("king", "black", "b_K", 1000, 0, 4);
+    grid[7][4] = std::make_shared<Piece>("king", "white", "w_K", 1000, 7, 4);
 }
 
 void Board::movePiece(const std::string& algebraic_move, const std::string &color){
@@ -87,15 +78,12 @@ void Board::movePiece(const std::string& algebraic_move, const std::string &colo
         grid[row][destCol] = king;
         grid[row][kingStartCol] = nullptr;
 
-        king->hasMoved = true;
         king->moveHistory.push_back({row, destCol});
 
         // Move rook
         auto rook = grid[row][rookStartCol];
         grid[row][rookDestCol] = rook;
         grid[row][rookStartCol] = nullptr;
-
-        rook->hasMoved = true;
         rook->moveHistory.push_back({row, rookDestCol});
 
         return;
@@ -108,10 +96,6 @@ void Board::movePiece(const std::string& algebraic_move, const std::string &colo
 
     grid[destRow][destCol] = movingPiece;
     grid[depRow][depCol] = nullptr;
-
-    if (!movingPiece->hasMoved){
-        movingPiece->hasMoved = true;
-    }
 
     std::pair<int, int> lastMove = {destRow,destCol};
     movingPiece->moveHistory.push_back(lastMove);
@@ -191,11 +175,31 @@ void Board::placePiece(const std::string& square, const std::string& name, const
         else if (name == "king")  { displayName = "b_K"; point_val = 1000; }
     }
 
-    char file = 'a' + col;
-    int rank = 8 - row;
+    auto piece = std::make_shared<Piece>(name, color, displayName, point_val, row, col);
     bool hasMoved = check_hasMoved(name, color, row, col, "");
-    auto piece = std::make_shared<Piece>(name, color, displayName, file, rank, point_val);
-    piece->hasMoved = hasMoved;
+    //initting the piece will only add 1 move to the history ... if it has moved we need to add the original position 
+    //so the array is length 2 
+    if (hasMoved) {
+        int originalRow = (color == "white") ? 7 : 0;
+        int originalCol = col;
+
+        if (name == "pawn") {
+            originalRow = (color == "white") ? 6 : 1;
+            // originalCol stays the same
+        } else if (name == "rook") {
+            originalCol = (std::abs(col - 0) < std::abs(col - 7)) ? 0 : 7;
+        } else if (name == "knight") {
+            originalCol = (std::abs(col - 1) < std::abs(col - 6)) ? 1 : 6;
+        } else if (name == "bishop") {
+            originalCol = (std::abs(col - 2) < std::abs(col - 5)) ? 2 : 5;
+        } else if (name == "queen") {
+            originalCol = 3;
+        } else if (name == "king") {
+            originalCol = 4;
+        }
+
+        piece->moveHistory.insert(piece->moveHistory.begin(), {originalRow, originalCol});
+    }
 
     grid[row][col] = piece;
 }
@@ -246,9 +250,10 @@ std::string Board::loadFEN(const std::string& fen){
             }
             char file = 'a' + col;
             int rank = 8 - row;
-            bool hasMoved = check_hasMoved(name, color, row, col, castling);
-            auto piece = std::make_shared<Piece>(name, color, displayName, file, rank, point_val);
-            piece->hasMoved = hasMoved;
+            //initting the piece will only add 1 move to the history ... if it has moved we need to add the original position 
+            //so the array is length 2  
+
+            auto piece = std::make_shared<Piece>(name, color, displayName, point_val, row, col);
 
             grid[row][col] = piece;
             col++;
