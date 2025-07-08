@@ -539,7 +539,7 @@ bool isKingInCheck(const Board&board, const std::string&color){
             auto piece = board.grid[r][c];
             if (!piece || piece->color != oppColor) continue;
             if (pieceCanReach(*piece, r, c, kingRow, kingCol, true, board)) {
-                std::cout << color << " is in Check!" << std::endl;
+                //std::cout << color << " is in Check!" << std::endl;
                 return true;
             }
         }
@@ -604,7 +604,7 @@ bool islegalMove(const Board&board, const ParsedSAN &parsed_move, const std::str
         if (king->moveHistory.size() <= 1 && rook ->moveHistory.size() <= 1){
             return true; 
         } else {
-            std::cout << "Invalid Castling ... rook or king as moved already!" << std::endl;
+            //std::cout << "Invalid Castling ... rook or king as moved already!" << std::endl;
             return false; 
         }
     }

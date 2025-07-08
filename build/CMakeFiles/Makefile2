@@ -63,9 +63,12 @@ CMAKE_BINARY_DIR = /home/kristen/chessBot/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/chess_core.dir/all
+all: CMakeFiles/chess_engines.dir/all
 all: CMakeFiles/chess_bot.dir/all
 all: CMakeFiles/test_gameOver.dir/all
 all: CMakeFiles/test_move_validator.dir/all
+all: CMakeFiles/test_board_evaluation.dir/all
 all: CMakeFiles/replay_pgn.dir/all
 .PHONY : all
 
@@ -74,25 +77,80 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/chess_core.dir/clean
+clean: CMakeFiles/chess_engines.dir/clean
 clean: CMakeFiles/chess_bot.dir/clean
 clean: CMakeFiles/test_gameOver.dir/clean
 clean: CMakeFiles/test_move_validator.dir/clean
+clean: CMakeFiles/test_board_evaluation.dir/clean
 clean: CMakeFiles/replay_pgn.dir/clean
 .PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/chess_core.dir
+
+# All Build rule for target.
+CMakeFiles/chess_core.dir/all: CMakeFiles/chess_engines.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_core.dir/build.make CMakeFiles/chess_core.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_core.dir/build.make CMakeFiles/chess_core.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kristen/chessBot/build/CMakeFiles --progress-num=3,4,5,6,7,8 "Built target chess_core"
+.PHONY : CMakeFiles/chess_core.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/chess_core.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kristen/chessBot/build/CMakeFiles 8
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/chess_core.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kristen/chessBot/build/CMakeFiles 0
+.PHONY : CMakeFiles/chess_core.dir/rule
+
+# Convenience name for target.
+chess_core: CMakeFiles/chess_core.dir/rule
+.PHONY : chess_core
+
+# clean rule for target.
+CMakeFiles/chess_core.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_core.dir/build.make CMakeFiles/chess_core.dir/clean
+.PHONY : CMakeFiles/chess_core.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/chess_engines.dir
+
+# All Build rule for target.
+CMakeFiles/chess_engines.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_engines.dir/build.make CMakeFiles/chess_engines.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_engines.dir/build.make CMakeFiles/chess_engines.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kristen/chessBot/build/CMakeFiles --progress-num=9,10 "Built target chess_engines"
+.PHONY : CMakeFiles/chess_engines.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/chess_engines.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kristen/chessBot/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/chess_engines.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kristen/chessBot/build/CMakeFiles 0
+.PHONY : CMakeFiles/chess_engines.dir/rule
+
+# Convenience name for target.
+chess_engines: CMakeFiles/chess_engines.dir/rule
+.PHONY : chess_engines
+
+# clean rule for target.
+CMakeFiles/chess_engines.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_engines.dir/build.make CMakeFiles/chess_engines.dir/clean
+.PHONY : CMakeFiles/chess_engines.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/chess_bot.dir
 
 # All Build rule for target.
-CMakeFiles/chess_bot.dir/all:
+CMakeFiles/chess_bot.dir/all: CMakeFiles/chess_core.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_bot.dir/build.make CMakeFiles/chess_bot.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_bot.dir/build.make CMakeFiles/chess_bot.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kristen/chessBot/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target chess_bot"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kristen/chessBot/build/CMakeFiles --progress-num=1,2 "Built target chess_bot"
 .PHONY : CMakeFiles/chess_bot.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/chess_bot.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kristen/chessBot/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kristen/chessBot/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/chess_bot.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kristen/chessBot/build/CMakeFiles 0
 .PHONY : CMakeFiles/chess_bot.dir/rule
@@ -110,15 +168,15 @@ CMakeFiles/chess_bot.dir/clean:
 # Target rules for target CMakeFiles/test_gameOver.dir
 
 # All Build rule for target.
-CMakeFiles/test_gameOver.dir/all:
+CMakeFiles/test_gameOver.dir/all: CMakeFiles/chess_core.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gameOver.dir/build.make CMakeFiles/test_gameOver.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gameOver.dir/build.make CMakeFiles/test_gameOver.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kristen/chessBot/build/CMakeFiles --progress-num=13,14,15,16,17,18 "Built target test_gameOver"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kristen/chessBot/build/CMakeFiles --progress-num=15,16 "Built target test_gameOver"
 .PHONY : CMakeFiles/test_gameOver.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_gameOver.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kristen/chessBot/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kristen/chessBot/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_gameOver.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kristen/chessBot/build/CMakeFiles 0
 .PHONY : CMakeFiles/test_gameOver.dir/rule
@@ -136,15 +194,15 @@ CMakeFiles/test_gameOver.dir/clean:
 # Target rules for target CMakeFiles/test_move_validator.dir
 
 # All Build rule for target.
-CMakeFiles/test_move_validator.dir/all:
+CMakeFiles/test_move_validator.dir/all: CMakeFiles/chess_core.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_move_validator.dir/build.make CMakeFiles/test_move_validator.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_move_validator.dir/build.make CMakeFiles/test_move_validator.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kristen/chessBot/build/CMakeFiles --progress-num=19,20,21,22,23,24 "Built target test_move_validator"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kristen/chessBot/build/CMakeFiles --progress-num=17,18 "Built target test_move_validator"
 .PHONY : CMakeFiles/test_move_validator.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_move_validator.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kristen/chessBot/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kristen/chessBot/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_move_validator.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kristen/chessBot/build/CMakeFiles 0
 .PHONY : CMakeFiles/test_move_validator.dir/rule
@@ -159,18 +217,44 @@ CMakeFiles/test_move_validator.dir/clean:
 .PHONY : CMakeFiles/test_move_validator.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/test_board_evaluation.dir
+
+# All Build rule for target.
+CMakeFiles/test_board_evaluation.dir/all: CMakeFiles/chess_core.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_board_evaluation.dir/build.make CMakeFiles/test_board_evaluation.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_board_evaluation.dir/build.make CMakeFiles/test_board_evaluation.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kristen/chessBot/build/CMakeFiles --progress-num=13,14 "Built target test_board_evaluation"
+.PHONY : CMakeFiles/test_board_evaluation.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_board_evaluation.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kristen/chessBot/build/CMakeFiles 10
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_board_evaluation.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kristen/chessBot/build/CMakeFiles 0
+.PHONY : CMakeFiles/test_board_evaluation.dir/rule
+
+# Convenience name for target.
+test_board_evaluation: CMakeFiles/test_board_evaluation.dir/rule
+.PHONY : test_board_evaluation
+
+# clean rule for target.
+CMakeFiles/test_board_evaluation.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_board_evaluation.dir/build.make CMakeFiles/test_board_evaluation.dir/clean
+.PHONY : CMakeFiles/test_board_evaluation.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/replay_pgn.dir
 
 # All Build rule for target.
-CMakeFiles/replay_pgn.dir/all:
+CMakeFiles/replay_pgn.dir/all: CMakeFiles/chess_core.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kristen/chessBot/build/CMakeFiles --progress-num=7,8,9,10,11,12 "Built target replay_pgn"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kristen/chessBot/build/CMakeFiles --progress-num=11,12 "Built target replay_pgn"
 .PHONY : CMakeFiles/replay_pgn.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/replay_pgn.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kristen/chessBot/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kristen/chessBot/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/replay_pgn.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kristen/chessBot/build/CMakeFiles 0
 .PHONY : CMakeFiles/replay_pgn.dir/rule

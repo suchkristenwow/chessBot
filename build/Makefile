@@ -127,6 +127,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named chess_core
+
+# Build rule for target.
+chess_core: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 chess_core
+.PHONY : chess_core
+
+# fast build rule for target.
+chess_core/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_core.dir/build.make CMakeFiles/chess_core.dir/build
+.PHONY : chess_core/fast
+
+#=============================================================================
+# Target rules for targets named chess_engines
+
+# Build rule for target.
+chess_engines: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 chess_engines
+.PHONY : chess_engines
+
+# fast build rule for target.
+chess_engines/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_engines.dir/build.make CMakeFiles/chess_engines.dir/build
+.PHONY : chess_engines/fast
+
+#=============================================================================
 # Target rules for targets named chess_bot
 
 # Build rule for target.
@@ -166,6 +192,19 @@ test_move_validator/fast:
 .PHONY : test_move_validator/fast
 
 #=============================================================================
+# Target rules for targets named test_board_evaluation
+
+# Build rule for target.
+test_board_evaluation: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_board_evaluation
+.PHONY : test_board_evaluation
+
+# fast build rule for target.
+test_board_evaluation/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_board_evaluation.dir/build.make CMakeFiles/test_board_evaluation.dir/build
+.PHONY : test_board_evaluation/fast
+
+#=============================================================================
 # Target rules for targets named replay_pgn
 
 # Build rule for target.
@@ -177,6 +216,30 @@ replay_pgn: cmake_check_build_system
 replay_pgn/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/build
 .PHONY : replay_pgn/fast
+
+engines/heuristic.o: engines/heuristic.cpp.o
+.PHONY : engines/heuristic.o
+
+# target to build an object file
+engines/heuristic.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_engines.dir/build.make CMakeFiles/chess_engines.dir/engines/heuristic.cpp.o
+.PHONY : engines/heuristic.cpp.o
+
+engines/heuristic.i: engines/heuristic.cpp.i
+.PHONY : engines/heuristic.i
+
+# target to preprocess a source file
+engines/heuristic.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_engines.dir/build.make CMakeFiles/chess_engines.dir/engines/heuristic.cpp.i
+.PHONY : engines/heuristic.cpp.i
+
+engines/heuristic.s: engines/heuristic.cpp.s
+.PHONY : engines/heuristic.s
+
+# target to generate assembly for a file
+engines/heuristic.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_engines.dir/build.make CMakeFiles/chess_engines.dir/engines/heuristic.cpp.s
+.PHONY : engines/heuristic.cpp.s
 
 main.o: main.cpp.o
 .PHONY : main.o
@@ -207,10 +270,7 @@ src/board.o: src/board.cpp.o
 
 # target to build an object file
 src/board.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_bot.dir/build.make CMakeFiles/chess_bot.dir/src/board.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gameOver.dir/build.make CMakeFiles/test_gameOver.dir/src/board.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_move_validator.dir/build.make CMakeFiles/test_move_validator.dir/src/board.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/src/board.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_core.dir/build.make CMakeFiles/chess_core.dir/src/board.cpp.o
 .PHONY : src/board.cpp.o
 
 src/board.i: src/board.cpp.i
@@ -218,10 +278,7 @@ src/board.i: src/board.cpp.i
 
 # target to preprocess a source file
 src/board.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_bot.dir/build.make CMakeFiles/chess_bot.dir/src/board.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gameOver.dir/build.make CMakeFiles/test_gameOver.dir/src/board.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_move_validator.dir/build.make CMakeFiles/test_move_validator.dir/src/board.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/src/board.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_core.dir/build.make CMakeFiles/chess_core.dir/src/board.cpp.i
 .PHONY : src/board.cpp.i
 
 src/board.s: src/board.cpp.s
@@ -229,21 +286,39 @@ src/board.s: src/board.cpp.s
 
 # target to generate assembly for a file
 src/board.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_bot.dir/build.make CMakeFiles/chess_bot.dir/src/board.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gameOver.dir/build.make CMakeFiles/test_gameOver.dir/src/board.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_move_validator.dir/build.make CMakeFiles/test_move_validator.dir/src/board.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/src/board.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_core.dir/build.make CMakeFiles/chess_core.dir/src/board.cpp.s
 .PHONY : src/board.cpp.s
+
+src/engine_utils.o: src/engine_utils.cpp.o
+.PHONY : src/engine_utils.o
+
+# target to build an object file
+src/engine_utils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_core.dir/build.make CMakeFiles/chess_core.dir/src/engine_utils.cpp.o
+.PHONY : src/engine_utils.cpp.o
+
+src/engine_utils.i: src/engine_utils.cpp.i
+.PHONY : src/engine_utils.i
+
+# target to preprocess a source file
+src/engine_utils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_core.dir/build.make CMakeFiles/chess_core.dir/src/engine_utils.cpp.i
+.PHONY : src/engine_utils.cpp.i
+
+src/engine_utils.s: src/engine_utils.cpp.s
+.PHONY : src/engine_utils.s
+
+# target to generate assembly for a file
+src/engine_utils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_core.dir/build.make CMakeFiles/chess_core.dir/src/engine_utils.cpp.s
+.PHONY : src/engine_utils.cpp.s
 
 src/game_manager.o: src/game_manager.cpp.o
 .PHONY : src/game_manager.o
 
 # target to build an object file
 src/game_manager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_bot.dir/build.make CMakeFiles/chess_bot.dir/src/game_manager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gameOver.dir/build.make CMakeFiles/test_gameOver.dir/src/game_manager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_move_validator.dir/build.make CMakeFiles/test_move_validator.dir/src/game_manager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/src/game_manager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_core.dir/build.make CMakeFiles/chess_core.dir/src/game_manager.cpp.o
 .PHONY : src/game_manager.cpp.o
 
 src/game_manager.i: src/game_manager.cpp.i
@@ -251,10 +326,7 @@ src/game_manager.i: src/game_manager.cpp.i
 
 # target to preprocess a source file
 src/game_manager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_bot.dir/build.make CMakeFiles/chess_bot.dir/src/game_manager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gameOver.dir/build.make CMakeFiles/test_gameOver.dir/src/game_manager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_move_validator.dir/build.make CMakeFiles/test_move_validator.dir/src/game_manager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/src/game_manager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_core.dir/build.make CMakeFiles/chess_core.dir/src/game_manager.cpp.i
 .PHONY : src/game_manager.cpp.i
 
 src/game_manager.s: src/game_manager.cpp.s
@@ -262,10 +334,7 @@ src/game_manager.s: src/game_manager.cpp.s
 
 # target to generate assembly for a file
 src/game_manager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_bot.dir/build.make CMakeFiles/chess_bot.dir/src/game_manager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gameOver.dir/build.make CMakeFiles/test_gameOver.dir/src/game_manager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_move_validator.dir/build.make CMakeFiles/test_move_validator.dir/src/game_manager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/src/game_manager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_core.dir/build.make CMakeFiles/chess_core.dir/src/game_manager.cpp.s
 .PHONY : src/game_manager.cpp.s
 
 src/move_validator.o: src/move_validator.cpp.o
@@ -273,10 +342,7 @@ src/move_validator.o: src/move_validator.cpp.o
 
 # target to build an object file
 src/move_validator.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_bot.dir/build.make CMakeFiles/chess_bot.dir/src/move_validator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gameOver.dir/build.make CMakeFiles/test_gameOver.dir/src/move_validator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_move_validator.dir/build.make CMakeFiles/test_move_validator.dir/src/move_validator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/src/move_validator.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_core.dir/build.make CMakeFiles/chess_core.dir/src/move_validator.cpp.o
 .PHONY : src/move_validator.cpp.o
 
 src/move_validator.i: src/move_validator.cpp.i
@@ -284,10 +350,7 @@ src/move_validator.i: src/move_validator.cpp.i
 
 # target to preprocess a source file
 src/move_validator.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_bot.dir/build.make CMakeFiles/chess_bot.dir/src/move_validator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gameOver.dir/build.make CMakeFiles/test_gameOver.dir/src/move_validator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_move_validator.dir/build.make CMakeFiles/test_move_validator.dir/src/move_validator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/src/move_validator.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_core.dir/build.make CMakeFiles/chess_core.dir/src/move_validator.cpp.i
 .PHONY : src/move_validator.cpp.i
 
 src/move_validator.s: src/move_validator.cpp.s
@@ -295,10 +358,7 @@ src/move_validator.s: src/move_validator.cpp.s
 
 # target to generate assembly for a file
 src/move_validator.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_bot.dir/build.make CMakeFiles/chess_bot.dir/src/move_validator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gameOver.dir/build.make CMakeFiles/test_gameOver.dir/src/move_validator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_move_validator.dir/build.make CMakeFiles/test_move_validator.dir/src/move_validator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/src/move_validator.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_core.dir/build.make CMakeFiles/chess_core.dir/src/move_validator.cpp.s
 .PHONY : src/move_validator.cpp.s
 
 src/pgn_replayer.o: src/pgn_replayer.cpp.o
@@ -330,10 +390,7 @@ src/piece.o: src/piece.cpp.o
 
 # target to build an object file
 src/piece.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_bot.dir/build.make CMakeFiles/chess_bot.dir/src/piece.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gameOver.dir/build.make CMakeFiles/test_gameOver.dir/src/piece.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_move_validator.dir/build.make CMakeFiles/test_move_validator.dir/src/piece.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/src/piece.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_core.dir/build.make CMakeFiles/chess_core.dir/src/piece.cpp.o
 .PHONY : src/piece.cpp.o
 
 src/piece.i: src/piece.cpp.i
@@ -341,10 +398,7 @@ src/piece.i: src/piece.cpp.i
 
 # target to preprocess a source file
 src/piece.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_bot.dir/build.make CMakeFiles/chess_bot.dir/src/piece.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gameOver.dir/build.make CMakeFiles/test_gameOver.dir/src/piece.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_move_validator.dir/build.make CMakeFiles/test_move_validator.dir/src/piece.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/src/piece.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_core.dir/build.make CMakeFiles/chess_core.dir/src/piece.cpp.i
 .PHONY : src/piece.cpp.i
 
 src/piece.s: src/piece.cpp.s
@@ -352,11 +406,32 @@ src/piece.s: src/piece.cpp.s
 
 # target to generate assembly for a file
 src/piece.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_bot.dir/build.make CMakeFiles/chess_bot.dir/src/piece.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_gameOver.dir/build.make CMakeFiles/test_gameOver.dir/src/piece.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_move_validator.dir/build.make CMakeFiles/test_move_validator.dir/src/piece.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_pgn.dir/build.make CMakeFiles/replay_pgn.dir/src/piece.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_core.dir/build.make CMakeFiles/chess_core.dir/src/piece.cpp.s
 .PHONY : src/piece.cpp.s
+
+tests/test_board_evaluation.o: tests/test_board_evaluation.cpp.o
+.PHONY : tests/test_board_evaluation.o
+
+# target to build an object file
+tests/test_board_evaluation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_board_evaluation.dir/build.make CMakeFiles/test_board_evaluation.dir/tests/test_board_evaluation.cpp.o
+.PHONY : tests/test_board_evaluation.cpp.o
+
+tests/test_board_evaluation.i: tests/test_board_evaluation.cpp.i
+.PHONY : tests/test_board_evaluation.i
+
+# target to preprocess a source file
+tests/test_board_evaluation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_board_evaluation.dir/build.make CMakeFiles/test_board_evaluation.dir/tests/test_board_evaluation.cpp.i
+.PHONY : tests/test_board_evaluation.cpp.i
+
+tests/test_board_evaluation.s: tests/test_board_evaluation.cpp.s
+.PHONY : tests/test_board_evaluation.s
+
+# target to generate assembly for a file
+tests/test_board_evaluation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_board_evaluation.dir/build.make CMakeFiles/test_board_evaluation.dir/tests/test_board_evaluation.cpp.s
+.PHONY : tests/test_board_evaluation.cpp.s
 
 tests/test_gameOver.o: tests/test_gameOver.cpp.o
 .PHONY : tests/test_gameOver.o
@@ -416,15 +491,24 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... chess_bot"
+	@echo "... chess_core"
+	@echo "... chess_engines"
 	@echo "... replay_pgn"
+	@echo "... test_board_evaluation"
 	@echo "... test_gameOver"
 	@echo "... test_move_validator"
+	@echo "... engines/heuristic.o"
+	@echo "... engines/heuristic.i"
+	@echo "... engines/heuristic.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
 	@echo "... src/board.o"
 	@echo "... src/board.i"
 	@echo "... src/board.s"
+	@echo "... src/engine_utils.o"
+	@echo "... src/engine_utils.i"
+	@echo "... src/engine_utils.s"
 	@echo "... src/game_manager.o"
 	@echo "... src/game_manager.i"
 	@echo "... src/game_manager.s"
@@ -437,6 +521,9 @@ help:
 	@echo "... src/piece.o"
 	@echo "... src/piece.i"
 	@echo "... src/piece.s"
+	@echo "... tests/test_board_evaluation.o"
+	@echo "... tests/test_board_evaluation.i"
+	@echo "... tests/test_board_evaluation.s"
 	@echo "... tests/test_gameOver.o"
 	@echo "... tests/test_gameOver.i"
 	@echo "... tests/test_gameOver.s"

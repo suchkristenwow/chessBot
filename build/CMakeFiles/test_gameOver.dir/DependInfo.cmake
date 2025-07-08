@@ -8,15 +8,13 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/kristen/chessBot/src/board.cpp" "CMakeFiles/test_gameOver.dir/src/board.cpp.o" "gcc" "CMakeFiles/test_gameOver.dir/src/board.cpp.o.d"
-  "/home/kristen/chessBot/src/game_manager.cpp" "CMakeFiles/test_gameOver.dir/src/game_manager.cpp.o" "gcc" "CMakeFiles/test_gameOver.dir/src/game_manager.cpp.o.d"
-  "/home/kristen/chessBot/src/move_validator.cpp" "CMakeFiles/test_gameOver.dir/src/move_validator.cpp.o" "gcc" "CMakeFiles/test_gameOver.dir/src/move_validator.cpp.o.d"
-  "/home/kristen/chessBot/src/piece.cpp" "CMakeFiles/test_gameOver.dir/src/piece.cpp.o" "gcc" "CMakeFiles/test_gameOver.dir/src/piece.cpp.o.d"
   "/home/kristen/chessBot/tests/test_gameOver.cpp" "CMakeFiles/test_gameOver.dir/tests/test_gameOver.cpp.o" "gcc" "CMakeFiles/test_gameOver.dir/tests/test_gameOver.cpp.o.d"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
+  "/home/kristen/chessBot/build/CMakeFiles/chess_engines.dir/DependInfo.cmake"
+  "/home/kristen/chessBot/build/CMakeFiles/chess_core.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

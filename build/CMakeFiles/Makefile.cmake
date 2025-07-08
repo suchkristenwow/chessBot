@@ -47,8 +47,11 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/chess_core.dir/DependInfo.cmake"
+  "CMakeFiles/chess_engines.dir/DependInfo.cmake"
   "CMakeFiles/chess_bot.dir/DependInfo.cmake"
   "CMakeFiles/test_gameOver.dir/DependInfo.cmake"
   "CMakeFiles/test_move_validator.dir/DependInfo.cmake"
+  "CMakeFiles/test_board_evaluation.dir/DependInfo.cmake"
   "CMakeFiles/replay_pgn.dir/DependInfo.cmake"
   )

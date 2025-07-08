@@ -1,0 +1,2 @@
+/usr/bin/ar qc libchess_engines.a CMakeFiles/chess_engines.dir/engines/heuristic.cpp.o
+/usr/bin/ranlib libchess_engines.a

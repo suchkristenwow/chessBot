@@ -83,81 +83,21 @@ CMakeFiles/test_move_validator.dir/tests/test_move_validator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_move_validator.dir/tests/test_move_validator.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kristen/chessBot/tests/test_move_validator.cpp -o CMakeFiles/test_move_validator.dir/tests/test_move_validator.cpp.s
 
-CMakeFiles/test_move_validator.dir/src/board.cpp.o: CMakeFiles/test_move_validator.dir/flags.make
-CMakeFiles/test_move_validator.dir/src/board.cpp.o: ../src/board.cpp
-CMakeFiles/test_move_validator.dir/src/board.cpp.o: CMakeFiles/test_move_validator.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kristen/chessBot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/test_move_validator.dir/src/board.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_move_validator.dir/src/board.cpp.o -MF CMakeFiles/test_move_validator.dir/src/board.cpp.o.d -o CMakeFiles/test_move_validator.dir/src/board.cpp.o -c /home/kristen/chessBot/src/board.cpp
-
-CMakeFiles/test_move_validator.dir/src/board.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_move_validator.dir/src/board.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kristen/chessBot/src/board.cpp > CMakeFiles/test_move_validator.dir/src/board.cpp.i
-
-CMakeFiles/test_move_validator.dir/src/board.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_move_validator.dir/src/board.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kristen/chessBot/src/board.cpp -o CMakeFiles/test_move_validator.dir/src/board.cpp.s
-
-CMakeFiles/test_move_validator.dir/src/piece.cpp.o: CMakeFiles/test_move_validator.dir/flags.make
-CMakeFiles/test_move_validator.dir/src/piece.cpp.o: ../src/piece.cpp
-CMakeFiles/test_move_validator.dir/src/piece.cpp.o: CMakeFiles/test_move_validator.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kristen/chessBot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/test_move_validator.dir/src/piece.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_move_validator.dir/src/piece.cpp.o -MF CMakeFiles/test_move_validator.dir/src/piece.cpp.o.d -o CMakeFiles/test_move_validator.dir/src/piece.cpp.o -c /home/kristen/chessBot/src/piece.cpp
-
-CMakeFiles/test_move_validator.dir/src/piece.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_move_validator.dir/src/piece.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kristen/chessBot/src/piece.cpp > CMakeFiles/test_move_validator.dir/src/piece.cpp.i
-
-CMakeFiles/test_move_validator.dir/src/piece.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_move_validator.dir/src/piece.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kristen/chessBot/src/piece.cpp -o CMakeFiles/test_move_validator.dir/src/piece.cpp.s
-
-CMakeFiles/test_move_validator.dir/src/move_validator.cpp.o: CMakeFiles/test_move_validator.dir/flags.make
-CMakeFiles/test_move_validator.dir/src/move_validator.cpp.o: ../src/move_validator.cpp
-CMakeFiles/test_move_validator.dir/src/move_validator.cpp.o: CMakeFiles/test_move_validator.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kristen/chessBot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/test_move_validator.dir/src/move_validator.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_move_validator.dir/src/move_validator.cpp.o -MF CMakeFiles/test_move_validator.dir/src/move_validator.cpp.o.d -o CMakeFiles/test_move_validator.dir/src/move_validator.cpp.o -c /home/kristen/chessBot/src/move_validator.cpp
-
-CMakeFiles/test_move_validator.dir/src/move_validator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_move_validator.dir/src/move_validator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kristen/chessBot/src/move_validator.cpp > CMakeFiles/test_move_validator.dir/src/move_validator.cpp.i
-
-CMakeFiles/test_move_validator.dir/src/move_validator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_move_validator.dir/src/move_validator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kristen/chessBot/src/move_validator.cpp -o CMakeFiles/test_move_validator.dir/src/move_validator.cpp.s
-
-CMakeFiles/test_move_validator.dir/src/game_manager.cpp.o: CMakeFiles/test_move_validator.dir/flags.make
-CMakeFiles/test_move_validator.dir/src/game_manager.cpp.o: ../src/game_manager.cpp
-CMakeFiles/test_move_validator.dir/src/game_manager.cpp.o: CMakeFiles/test_move_validator.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kristen/chessBot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/test_move_validator.dir/src/game_manager.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_move_validator.dir/src/game_manager.cpp.o -MF CMakeFiles/test_move_validator.dir/src/game_manager.cpp.o.d -o CMakeFiles/test_move_validator.dir/src/game_manager.cpp.o -c /home/kristen/chessBot/src/game_manager.cpp
-
-CMakeFiles/test_move_validator.dir/src/game_manager.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_move_validator.dir/src/game_manager.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kristen/chessBot/src/game_manager.cpp > CMakeFiles/test_move_validator.dir/src/game_manager.cpp.i
-
-CMakeFiles/test_move_validator.dir/src/game_manager.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_move_validator.dir/src/game_manager.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kristen/chessBot/src/game_manager.cpp -o CMakeFiles/test_move_validator.dir/src/game_manager.cpp.s
-
 # Object files for target test_move_validator
 test_move_validator_OBJECTS = \
-"CMakeFiles/test_move_validator.dir/tests/test_move_validator.cpp.o" \
-"CMakeFiles/test_move_validator.dir/src/board.cpp.o" \
-"CMakeFiles/test_move_validator.dir/src/piece.cpp.o" \
-"CMakeFiles/test_move_validator.dir/src/move_validator.cpp.o" \
-"CMakeFiles/test_move_validator.dir/src/game_manager.cpp.o"
+"CMakeFiles/test_move_validator.dir/tests/test_move_validator.cpp.o"
 
 # External object files for target test_move_validator
 test_move_validator_EXTERNAL_OBJECTS =
 
 test_move_validator: CMakeFiles/test_move_validator.dir/tests/test_move_validator.cpp.o
-test_move_validator: CMakeFiles/test_move_validator.dir/src/board.cpp.o
-test_move_validator: CMakeFiles/test_move_validator.dir/src/piece.cpp.o
-test_move_validator: CMakeFiles/test_move_validator.dir/src/move_validator.cpp.o
-test_move_validator: CMakeFiles/test_move_validator.dir/src/game_manager.cpp.o
 test_move_validator: CMakeFiles/test_move_validator.dir/build.make
+test_move_validator: libchess_engines.a
+test_move_validator: libchess_core.a
+test_move_validator: libchess_engines.a
+test_move_validator: libchess_core.a
 test_move_validator: CMakeFiles/test_move_validator.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kristen/chessBot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable test_move_validator"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kristen/chessBot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable test_move_validator"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_move_validator.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

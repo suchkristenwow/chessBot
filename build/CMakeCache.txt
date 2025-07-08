@@ -243,6 +243,12 @@ chess_bot_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 chess_bot_SOURCE_DIR:STATIC=/home/kristen/chessBot
 
+//Dependencies for the target
+chess_core_LIB_DEPENDS:STATIC=general;chess_engines;
+
+//Dependencies for the target
+chess_engines_LIB_DEPENDS:STATIC=general;chess_core;
+
 
 ########################
 # INTERNAL cache entries

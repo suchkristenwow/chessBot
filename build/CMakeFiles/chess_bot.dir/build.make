@@ -83,81 +83,21 @@ CMakeFiles/chess_bot.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/chess_bot.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kristen/chessBot/main.cpp -o CMakeFiles/chess_bot.dir/main.cpp.s
 
-CMakeFiles/chess_bot.dir/src/board.cpp.o: CMakeFiles/chess_bot.dir/flags.make
-CMakeFiles/chess_bot.dir/src/board.cpp.o: ../src/board.cpp
-CMakeFiles/chess_bot.dir/src/board.cpp.o: CMakeFiles/chess_bot.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kristen/chessBot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/chess_bot.dir/src/board.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/chess_bot.dir/src/board.cpp.o -MF CMakeFiles/chess_bot.dir/src/board.cpp.o.d -o CMakeFiles/chess_bot.dir/src/board.cpp.o -c /home/kristen/chessBot/src/board.cpp
-
-CMakeFiles/chess_bot.dir/src/board.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/chess_bot.dir/src/board.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kristen/chessBot/src/board.cpp > CMakeFiles/chess_bot.dir/src/board.cpp.i
-
-CMakeFiles/chess_bot.dir/src/board.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/chess_bot.dir/src/board.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kristen/chessBot/src/board.cpp -o CMakeFiles/chess_bot.dir/src/board.cpp.s
-
-CMakeFiles/chess_bot.dir/src/piece.cpp.o: CMakeFiles/chess_bot.dir/flags.make
-CMakeFiles/chess_bot.dir/src/piece.cpp.o: ../src/piece.cpp
-CMakeFiles/chess_bot.dir/src/piece.cpp.o: CMakeFiles/chess_bot.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kristen/chessBot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/chess_bot.dir/src/piece.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/chess_bot.dir/src/piece.cpp.o -MF CMakeFiles/chess_bot.dir/src/piece.cpp.o.d -o CMakeFiles/chess_bot.dir/src/piece.cpp.o -c /home/kristen/chessBot/src/piece.cpp
-
-CMakeFiles/chess_bot.dir/src/piece.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/chess_bot.dir/src/piece.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kristen/chessBot/src/piece.cpp > CMakeFiles/chess_bot.dir/src/piece.cpp.i
-
-CMakeFiles/chess_bot.dir/src/piece.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/chess_bot.dir/src/piece.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kristen/chessBot/src/piece.cpp -o CMakeFiles/chess_bot.dir/src/piece.cpp.s
-
-CMakeFiles/chess_bot.dir/src/move_validator.cpp.o: CMakeFiles/chess_bot.dir/flags.make
-CMakeFiles/chess_bot.dir/src/move_validator.cpp.o: ../src/move_validator.cpp
-CMakeFiles/chess_bot.dir/src/move_validator.cpp.o: CMakeFiles/chess_bot.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kristen/chessBot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/chess_bot.dir/src/move_validator.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/chess_bot.dir/src/move_validator.cpp.o -MF CMakeFiles/chess_bot.dir/src/move_validator.cpp.o.d -o CMakeFiles/chess_bot.dir/src/move_validator.cpp.o -c /home/kristen/chessBot/src/move_validator.cpp
-
-CMakeFiles/chess_bot.dir/src/move_validator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/chess_bot.dir/src/move_validator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kristen/chessBot/src/move_validator.cpp > CMakeFiles/chess_bot.dir/src/move_validator.cpp.i
-
-CMakeFiles/chess_bot.dir/src/move_validator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/chess_bot.dir/src/move_validator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kristen/chessBot/src/move_validator.cpp -o CMakeFiles/chess_bot.dir/src/move_validator.cpp.s
-
-CMakeFiles/chess_bot.dir/src/game_manager.cpp.o: CMakeFiles/chess_bot.dir/flags.make
-CMakeFiles/chess_bot.dir/src/game_manager.cpp.o: ../src/game_manager.cpp
-CMakeFiles/chess_bot.dir/src/game_manager.cpp.o: CMakeFiles/chess_bot.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kristen/chessBot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/chess_bot.dir/src/game_manager.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/chess_bot.dir/src/game_manager.cpp.o -MF CMakeFiles/chess_bot.dir/src/game_manager.cpp.o.d -o CMakeFiles/chess_bot.dir/src/game_manager.cpp.o -c /home/kristen/chessBot/src/game_manager.cpp
-
-CMakeFiles/chess_bot.dir/src/game_manager.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/chess_bot.dir/src/game_manager.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kristen/chessBot/src/game_manager.cpp > CMakeFiles/chess_bot.dir/src/game_manager.cpp.i
-
-CMakeFiles/chess_bot.dir/src/game_manager.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/chess_bot.dir/src/game_manager.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kristen/chessBot/src/game_manager.cpp -o CMakeFiles/chess_bot.dir/src/game_manager.cpp.s
-
 # Object files for target chess_bot
 chess_bot_OBJECTS = \
-"CMakeFiles/chess_bot.dir/main.cpp.o" \
-"CMakeFiles/chess_bot.dir/src/board.cpp.o" \
-"CMakeFiles/chess_bot.dir/src/piece.cpp.o" \
-"CMakeFiles/chess_bot.dir/src/move_validator.cpp.o" \
-"CMakeFiles/chess_bot.dir/src/game_manager.cpp.o"
+"CMakeFiles/chess_bot.dir/main.cpp.o"
 
 # External object files for target chess_bot
 chess_bot_EXTERNAL_OBJECTS =
 
 chess_bot: CMakeFiles/chess_bot.dir/main.cpp.o
-chess_bot: CMakeFiles/chess_bot.dir/src/board.cpp.o
-chess_bot: CMakeFiles/chess_bot.dir/src/piece.cpp.o
-chess_bot: CMakeFiles/chess_bot.dir/src/move_validator.cpp.o
-chess_bot: CMakeFiles/chess_bot.dir/src/game_manager.cpp.o
 chess_bot: CMakeFiles/chess_bot.dir/build.make
+chess_bot: libchess_engines.a
+chess_bot: libchess_core.a
+chess_bot: libchess_engines.a
+chess_bot: libchess_core.a
 chess_bot: CMakeFiles/chess_bot.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kristen/chessBot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable chess_bot"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kristen/chessBot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable chess_bot"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/chess_bot.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

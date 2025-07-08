@@ -208,6 +208,8 @@ CMakeFiles/replay_pgn.dir/src/pgn_replayer.cpp.o: \
  /usr/include/c++/11/bits/stl_set.h \
  /usr/include/c++/11/bits/stl_multiset.h \
  /home/kristen/chessBot/include/game_manager.hpp \
+ /home/kristen/chessBot/include/engine_utils.hpp \
+ /home/kristen/chessBot/include/engines/heuristic.hpp \
  /usr/include/c++/11/fstream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \

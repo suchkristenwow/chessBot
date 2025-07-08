@@ -1,7 +1,6 @@
 CMakeFiles/test_gameOver.dir/tests/test_gameOver.cpp.o: \
  /home/kristen/chessBot/tests/test_gameOver.cpp \
- /usr/include/stdc-predef.h \
- /home/kristen/chessBot/external/catch2/catch.hpp \
+ /usr/include/stdc-predef.h /usr/include/catch2/catch.hpp \
  /usr/include/c++/11/iosfwd \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -259,4 +258,6 @@ CMakeFiles/test_gameOver.dir/tests/test_gameOver.cpp.o: \
  /usr/include/c++/11/bits/hashtable_policy.h \
  /usr/include/c++/11/bits/enable_special_members.h \
  /usr/include/c++/11/bits/unordered_map.h \
- /home/kristen/chessBot/include/game_manager.hpp
+ /home/kristen/chessBot/include/game_manager.hpp \
+ /home/kristen/chessBot/include/engine_utils.hpp \
+ /home/kristen/chessBot/include/engines/heuristic.hpp

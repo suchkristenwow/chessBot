@@ -1,11 +1,14 @@
 #pragma once
-#include "board.hpp"
+#include "board.hpp" 
+#include "engine_utils.hpp"
 #include <string>
 #include <vector> 
 
+#include "engines/heuristic.hpp" 
+
 class GameManager {
     public:
-        GameManager(const std::string& playerColor);
+        GameManager(const std::string& playerColor, const std::string& engineType = "heuristic");
 
         void start();
         bool makeMove(const std::string& move);
@@ -22,12 +25,7 @@ class GameManager {
 
     private:
         std::string playerColor;
-        std::vector<std::string> getAllPawnMoves(int row, int col, const std::string& color);
-        std::vector<std::string> getAllKnightMoves(int row, int col, const std::string& color); 
-        std::vector<std::string> getAllBishopMoves(int row, int col, const std::string& color);
-        std::vector<std::string> getAllRookMoves(int row, int col, const std::string& color); 
-        std::vector<std::string> getAllKingMoves(int row, int col, const std::string& color);
-        std::vector<std::string> getAllQueenMoves(int row, int col, const std::string& color); 
+        std::string engineType;
 
         void makePlayerMove(); 
         void makeComputerMove();

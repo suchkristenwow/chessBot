@@ -1,0 +1,2 @@
+/usr/bin/ar qc libchess_core.a CMakeFiles/chess_core.dir/src/board.cpp.o CMakeFiles/chess_core.dir/src/piece.cpp.o CMakeFiles/chess_core.dir/src/move_validator.cpp.o CMakeFiles/chess_core.dir/src/game_manager.cpp.o CMakeFiles/chess_core.dir/src/engine_utils.cpp.o
+/usr/bin/ranlib libchess_core.a

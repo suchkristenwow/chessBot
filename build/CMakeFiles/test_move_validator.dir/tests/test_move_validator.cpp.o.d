@@ -1,7 +1,6 @@
 CMakeFiles/test_move_validator.dir/tests/test_move_validator.cpp.o: \
  /home/kristen/chessBot/tests/test_move_validator.cpp \
- /usr/include/stdc-predef.h \
- /home/kristen/chessBot/external/catch2/catch.hpp \
+ /usr/include/stdc-predef.h /usr/include/catch2/catch.hpp \
  /usr/include/c++/11/iosfwd \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

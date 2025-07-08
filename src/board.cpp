@@ -56,7 +56,7 @@ void Board::initialize(){
 void Board::movePiece(const std::string& algebraic_move, const std::string &color){
     MoveValidator::MoveResult result = MoveValidator::isvalidMove(*this,algebraic_move,color);
     if (!result.valid){
-        std::cout << result.reason << std::endl;
+        //std::cout << result.reason << std::endl;
         return;
     }
 
