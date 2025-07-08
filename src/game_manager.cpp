@@ -31,7 +31,11 @@ void GameManager::start(){
 void GameManager::makeComputerMove(){
     // This function is responsible for making moves for the computer 
     std::string move; 
+    //TO DO switch cases for different engines 
+    auto start = std::chrono::high_resolution_clock::now();
     move = Engines::Heuristic::chooseMove(board,currentTurn); 
+    auto finish = std::chrono::high_resolution_clock::now(); 
+    std::cout << "Search took: " << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << "ms\n";
     board.movePiece(move,currentTurn);
 }
 
