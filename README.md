@@ -1,4 +1,4 @@
-# ♟️ ChessBot
+# ChessBot
 
 **ChessBot** is a modular C++14 chess engine built from scratch to explore search algorithms, evaluation heuristics, and system design in a self-contained game engine. This project emphasizes both correctness and performance, and serves as a sandbox for experimenting with ideas in AI planning, game logic, and object-oriented design.
 
@@ -39,13 +39,13 @@ make
 ```
 
 ### File Structure
-    - src/: core engine logic (Board, Piece, MoveValidator, GameManager, etc.)
-    - engines/: move selection logic (e.g., Heuristic engine)
-    - include/: headers for all modules
-    - tests/: unit tests with Catch2
-    - config/: YAML config for engine settings 
+- src/: core engine logic (Board, Piece, MoveValidator, GameManager, etc.)
+- engines/: move selection logic (e.g., Heuristic engine)
+- include/: headers for all modules
+- tests/: unit tests with Catch2
+- config/: YAML config for engine settings 
 
-Blog Write-Up
+### Blog Write-Up
 
 For an in-depth write-up of how I structured the engine, implemented SAN move parsing, and handled evaluation challenges, see my blog:
 
